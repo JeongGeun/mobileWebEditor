@@ -21,7 +21,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/cssinjs@npm:^1.16.0":
+"@ant-design/cssinjs@npm:^1.16.0, @ant-design/cssinjs@npm:^1.16.1":
   version: 1.16.1
   resolution: "@ant-design/cssinjs@npm:1.16.1"
   dependencies:
@@ -46,7 +46,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:^5.1.0":
+"@ant-design/icons@npm:^5.1.0, @ant-design/icons@npm:^5.2.1":
   version: 5.2.1
   resolution: "@ant-design/icons@npm:5.2.1"
   dependencies:
@@ -2302,6 +2302,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
+    "@ant-design/cssinjs": ^1.16.1
+    "@ant-design/icons": ^5.2.1
     "@types/node": 20.4.5
     "@types/react": 18.2.17
     "@types/react-dom": 18.2.7
