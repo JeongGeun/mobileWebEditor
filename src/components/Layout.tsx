@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { PieChartOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu, theme } from "antd";
+import styles from "./layout.module.scss";
 
 const { Header, Content, Sider } = Layout;
 
@@ -30,10 +31,10 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <Layout>
-      <Header style={{ display: "flex", alignItems: "center" }}>
-        <div style={{ color: "white" }}>모청 메이커</div>
+      <Header className={styles.header}>
+        <div className={styles.logo}>모청 메이커</div>
       </Header>
-      <Layout style={{ minHeight: "100vh" }} hasSider>
+      <Layout className={styles.layout} hasSider>
         <Sider
           collapsible
           collapsed={collapsed}
@@ -48,7 +49,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           />
         </Sider>
         <Layout>
-          <Content style={{ margin: "16px" }}>{children}</Content>
+          <Content className={styles.content}>{children}</Content>
         </Layout>
       </Layout>
     </Layout>
