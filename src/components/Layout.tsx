@@ -1,34 +1,58 @@
 "use client";
 
-import React from "react";
-import { Layout, Space } from "antd";
+import React, { useState } from "react";
+import { PieChartOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Layout, Menu, theme } from "antd";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Content, Sider } = Layout;
 
-const headerStyle: React.CSSProperties = {
-  position: "relative",
-  top: 0,
-  textAlign: "center",
-  color: "#fff",
-  paddingInline: 50,
-  lineHeight: "64px",
-  backgroundColor: "#7dbcea",
-};
+type MenuItem = Required<MenuProps>["items"][number];
 
-const contentStyle: React.CSSProperties = {
-  textAlign: "center",
-  lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#108ee9",
-};
+function getItem(
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[]
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  } as MenuItem;
+}
 
-const AppLayout = ({ children }: { children: React.ReactNode }) => (
-  <Space direction="vertical" style={{ width: "100%", height: "100vh" }}>
-    <Layout style={{ width: "100%", height: "100%", position: "absolute" }}>
-      <Header style={headerStyle}>Header</Header>
-      <Content style={contentStyle}>{children}</Content>
+const items: MenuItem[] = [getItem("모바일 청첩창", "1", <PieChartOutlined />)];
+
+const AppLayout = ({ children }: { children: React.ReactNode }) => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <Layout>
+      <Header style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ color: "white" }}>모청 메이커</div>
+      </Header>
+      <Layout style={{ minHeight: "100vh" }} hasSider>
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
+        >
+          <div className="demo-logo-vertical" />
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={["1"]}
+            mode="inline"
+            items={items}
+          />
+        </Sider>
+        <Layout>
+          <Content style={{ margin: "16px" }}>{children}</Content>
+        </Layout>
+      </Layout>
     </Layout>
-  </Space>
-);
+  );
+};
 
 export default AppLayout;

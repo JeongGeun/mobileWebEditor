@@ -11,11 +11,13 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
-  <body className={inter.className}>
-    <StyledComponentsRegistry>
-      <AppLayout>{children}</AppLayout>
-    </StyledComponentsRegistry>
-  </body>
+  <html lang="ko">
+    <body className={inter.className} style={{ margin: 0 }}>
+      <StyledComponentsRegistry>
+        <AppLayout>{children}</AppLayout>
+      </StyledComponentsRegistry>
+    </body>
+  </html>
 );
 
 export default RootLayout;
