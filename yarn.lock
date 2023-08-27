@@ -53,7 +53,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/icons@npm:^5.1.0, @ant-design/icons@npm:^5.2.1":
+"@ant-design/icons@npm:^5.1.0":
   version: 5.2.1
   resolution: "@ant-design/icons@npm:5.2.1"
   dependencies:
@@ -66,6 +66,23 @@ __metadata:
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
   checksum: 1e728013e1ca007129c254cebc5811910424ceba8041d9ff9e999da6c7bf3b254e42873ac1968dd086e1f35a5a7e4d6630d34e6cbdfe0a067a236605d1317e82
+  languageName: node
+  linkType: hard
+
+"@ant-design/icons@npm:^5.2.5":
+  version: 5.2.5
+  resolution: "@ant-design/icons@npm:5.2.5"
+  dependencies:
+    "@ant-design/colors": ^7.0.0
+    "@ant-design/icons-svg": ^4.3.0
+    "@babel/runtime": ^7.11.2
+    classnames: ^2.2.6
+    lodash.camelcase: ^4.3.0
+    rc-util: ^5.31.1
+  peerDependencies:
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: b21c99a783d4796de6e86a9057637cb7f5e059999d5d169dc889ad98523c64fe062ba26f81c40174b20acb3644ac2d12765e50f9a96a8ae1ad66e2b8bb29d813
   languageName: node
   linkType: hard
 
@@ -3042,7 +3059,7 @@ __metadata:
   resolution: "my-app@workspace:."
   dependencies:
     "@ant-design/cssinjs": ^1.16.1
-    "@ant-design/icons": ^5.2.1
+    "@ant-design/icons": ^5.2.5
     "@types/node": 20.4.5
     "@types/react": 18.2.17
     "@types/react-dom": 18.2.7

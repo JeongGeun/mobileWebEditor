@@ -48,7 +48,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           />
         </Sider>
         <Layout>
-          <Content className={styles.content}>{children}</Content>
+          <Content>{children}</Content>
         </Layout>
       </Layout>
     </Layout>

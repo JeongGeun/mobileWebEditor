@@ -29,7 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@ant-design/cssinjs", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:1.16.1"],\
-            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.1"],\
+            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.5"],\
             ["@types/node", "npm:20.4.5"],\
             ["@types/react", "npm:18.2.17"],\
             ["@types/react-dom", "npm:18.2.7"],\
@@ -115,10 +115,40 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.1", {\
-          "packageLocation": "./.yarn/__virtual__/@ant-design-icons-virtual-d0703221c8/0/cache/@ant-design-icons-npm-5.2.1-d179d692f5-1e728013e1.zip/node_modules/@ant-design/icons/",\
+        ["npm:5.2.5", {\
+          "packageLocation": "./.yarn/cache/@ant-design-icons-npm-5.2.5-8100ae82b3-b21c99a783.zip/node_modules/@ant-design/icons/",\
           "packageDependencies": [\
-            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.1"],\
+            ["@ant-design/icons", "npm:5.2.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.5", {\
+          "packageLocation": "./.yarn/__virtual__/@ant-design-icons-virtual-8b1b477fb7/0/cache/@ant-design-icons-npm-5.2.5-8100ae82b3-b21c99a783.zip/node_modules/@ant-design/icons/",\
+          "packageDependencies": [\
+            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.5"],\
+            ["@ant-design/colors", "npm:7.0.0"],\
+            ["@ant-design/icons-svg", "npm:4.3.0"],\
+            ["@babel/runtime", "npm:7.22.6"],\
+            ["@types/react", "npm:18.2.17"],\
+            ["@types/react-dom", "npm:18.2.7"],\
+            ["classnames", "npm:2.3.2"],\
+            ["lodash.camelcase", "npm:4.3.0"],\
+            ["rc-util", "virtual:080071d255205500511fafd0c28b871ee2fd1401f9440dc3282a0254c6edd2e802ffd02562aa242822fcf48acfcf9b759b91c667de2791cfec9b2b36980c8ca1#npm:5.35.0"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:e8d810567f2e73701330fe0c351515629b9321bacbde8dd3c00d64d1dbde7ba865854a7be591b201efb43ffd82300690bbdae379d1c4b1ddbbeea8af222a81a7#npm:5.2.1", {\
+          "packageLocation": "./.yarn/__virtual__/@ant-design-icons-virtual-fb06e01351/0/cache/@ant-design-icons-npm-5.2.1-d179d692f5-1e728013e1.zip/node_modules/@ant-design/icons/",\
+          "packageDependencies": [\
+            ["@ant-design/icons", "virtual:e8d810567f2e73701330fe0c351515629b9321bacbde8dd3c00d64d1dbde7ba865854a7be591b201efb43ffd82300690bbdae379d1c4b1ddbbeea8af222a81a7#npm:5.2.1"],\
             ["@ant-design/colors", "npm:7.0.0"],\
             ["@ant-design/icons-svg", "npm:4.3.0"],\
             ["@babel/runtime", "npm:7.22.6"],\
@@ -1016,7 +1046,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["antd", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.8.0"],\
             ["@ant-design/colors", "npm:7.0.0"],\
             ["@ant-design/cssinjs", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:1.16.1"],\
-            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.1"],\
+            ["@ant-design/icons", "virtual:e8d810567f2e73701330fe0c351515629b9321bacbde8dd3c00d64d1dbde7ba865854a7be591b201efb43ffd82300690bbdae379d1c4b1ddbbeea8af222a81a7#npm:5.2.1"],\
             ["@ant-design/react-slick", "virtual:e8d810567f2e73701330fe0c351515629b9321bacbde8dd3c00d64d1dbde7ba865854a7be591b201efb43ffd82300690bbdae379d1c4b1ddbbeea8af222a81a7#npm:1.0.2"],\
             ["@babel/runtime", "npm:7.22.6"],\
             ["@ctrl/tinycolor", "npm:3.6.0"],\
@@ -3767,7 +3797,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["my-app", "workspace:."],\
             ["@ant-design/cssinjs", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:1.16.1"],\
-            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.1"],\
+            ["@ant-design/icons", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.2.5"],\
             ["@types/node", "npm:20.4.5"],\
             ["@types/react", "npm:18.2.17"],\
             ["@types/react-dom", "npm:18.2.7"],\
