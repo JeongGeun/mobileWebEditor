@@ -20,16 +20,11 @@
 
   li {
     cursor: pointer;
-    margin: auto;
     padding: 10px;
-    transition: all ease 1s;
+
     svg {
       width: 24px;
       height: 24px;
-    }
-
-    &:hover {
-      border: 1px solid black;
     }
   }
 }
