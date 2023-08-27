@@ -1,0 +1,30 @@
+.toolbar {
+  position: fixed;
+  left: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 60px;
+
+  margin-left: 25px;
+  padding: 5px;
+
+  background-color: white;
+  box-shadow: 2px 2px 5px 5px grey;
+  border: 1px solid red;
+  border-radius: 5px;
+
+  list-style-type: none;
+
+  li {
+    cursor: pointer;
+    padding: 10px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
