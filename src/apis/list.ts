@@ -1,6 +1,6 @@
 export interface Block {
   type: "TEXT" | "IMAGE";
-  value: string;
+  value?: string;
 }
 
 export interface FormListType {
