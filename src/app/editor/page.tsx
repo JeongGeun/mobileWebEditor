@@ -3,6 +3,7 @@
 import { Layout } from "antd";
 import Renderer from "@/components/Renderer";
 import Toolbar from "@/components/Toolbar";
+import Sider from "@/components/Sider";
 
 export default function Editor() {
   return (
@@ -12,7 +13,7 @@ export default function Editor() {
         <Renderer />
       </Layout.Content>
       <Layout.Sider width={350} style={{ background: "white" }}>
-        Sider
+        <Sider />
       </Layout.Sider>
     </Layout>
   );
