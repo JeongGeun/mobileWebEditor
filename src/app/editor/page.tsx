@@ -5,7 +5,7 @@ import Renderer from "@/components/Renderer";
 import Toolbar from "@/components/Toolbar";
 import Sider from "@/components/Sider";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { FormListType } from "@/apis/list";
+import type { FormListType } from "@/apis/list";
 
 export default function Editor() {
   const methods = useForm<FormListType>({ defaultValues: { blocks: [] } });
@@ -25,7 +25,7 @@ export default function Editor() {
         <Layout style={{ height: "100%" }} hasSider>
           <Layout.Content>
             <Toolbar appendItem={appendItem} />
-            <Renderer />
+            <Renderer fields={fields} />
           </Layout.Content>
           <Layout.Sider width={350} style={{ background: "white" }}>
             <Sider />
