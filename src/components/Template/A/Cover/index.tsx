@@ -1,12 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import styles from "./index.module.scss";
 
-export default function Text() {
+export default function Cover() {
   return (
     <div className={styles.layout}>
       <p className={styles.date}>10월 26일</p>
-      <img
+      <Image
         src="https://www.itscard.co.kr/mobile/new_m/mcard/images/mcard_29/visual_01.jpg"
         alt="1234"
         width={260}

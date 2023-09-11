@@ -5,7 +5,8 @@ import Renderer from "@/components/Renderer";
 import Toolbar from "@/components/Toolbar";
 import Sider from "@/components/Sider";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import type { FormListType } from "@/apis/list";
+import type { FormListType, TemplateType } from "@/apis/list";
+import { useState } from "react";
 
 export default function Editor() {
   const methods = useForm<FormListType>({ defaultValues: { blocks: [] } });
@@ -13,9 +14,10 @@ export default function Editor() {
     control: methods.control,
     name: "blocks", // unique name for your Field Array
   });
+  const [item, setItem] = useState({ type: "A" });
 
-  const appendItem = (type: "TEXT" | "IMAGE") => {
-    append({ type, value: "" });
+  const appendItem = (type: TemplateType) => {
+    append({ type: "A", value: "" });
   };
 
   console.log(fields);
@@ -28,7 +30,7 @@ export default function Editor() {
             <Renderer fields={fields} />
           </Layout.Content>
           <Layout.Sider width={350} style={{ background: "white" }}>
-            <Sider />
+            <Sider item={item} />
           </Layout.Sider>
         </Layout>
       </form>

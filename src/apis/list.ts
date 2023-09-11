@@ -1,5 +1,7 @@
+export type TemplateType = "A" | "B" | "C" | "D";
+
 export interface Block {
-  type: "TEXT" | "IMAGE";
+  type: TemplateType;
   value?: string;
 }
 
