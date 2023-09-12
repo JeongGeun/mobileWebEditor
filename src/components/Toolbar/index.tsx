@@ -5,7 +5,7 @@ import { Tooltip } from "antd";
 import { TemplateType } from "@/apis/list";
 
 interface ToolbarProps {
-  appendItem: (type: TemplateType) => void;
+  setTemplateType: (type: TemplateType) => void;
 }
 
 const menuList: {
@@ -28,11 +28,11 @@ const menuList: {
   { title: "이미지", type: "C", children: <FileImageOutlined /> },
 ];
 
-export default function Toolbar({ appendItem }: ToolbarProps) {
+export default function Toolbar({ setTemplateType }: ToolbarProps) {
   return (
     <ul className={styles.toolbar}>
       {menuList.map(({ title, children, type }, index) => (
-        <li key={index} onClick={() => appendItem(type)}>
+        <li key={index} onClick={() => setTemplateType(type)}>
           <Tooltip placement="right" title={title}>
             {children}
           </Tooltip>

@@ -9,28 +9,24 @@ import type { FormListType, TemplateType } from "@/apis/list";
 import { useState } from "react";
 
 export default function Editor() {
-  const methods = useForm<FormListType>({ defaultValues: { blocks: [] } });
-  const { fields, append } = useFieldArray({
-    control: methods.control,
-    name: "blocks", // unique name for your Field Array
+  const methods = useForm<FormListType>({
+    defaultValues: { type: "A" },
   });
-  const [item, setItem] = useState({ type: "A" });
 
-  const appendItem = (type: TemplateType) => {
-    append({ type: "A", value: "" });
+  const setTemplateType = (type: TemplateType) => {
+    methods.setValue("type", type);
   };
 
-  console.log(fields);
   return (
     <FormProvider {...methods}>
       <form>
         <Layout style={{ height: "100%" }} hasSider>
           <Layout.Content>
-            <Toolbar appendItem={appendItem} />
-            <Renderer fields={fields} />
+            <Toolbar setTemplateType={setTemplateType} />
+            <Renderer />
           </Layout.Content>
           <Layout.Sider width={350} style={{ background: "white" }}>
-            <Sider item={item} />
+            <Sider />
           </Layout.Sider>
         </Layout>
       </form>

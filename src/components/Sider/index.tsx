@@ -1,13 +1,16 @@
-import type { Block } from "@/apis/list";
-import { Radio } from "antd";
+import Inspector from "../Inspector";
 import styles from "./index.module.scss";
+import { useWatch } from "react-hook-form";
 
-interface SiderProps {
-  item: Block;
-}
-
-export default function Sider({ item }: SiderProps) {
+export default function Sider() {
+  const type = useWatch({ name: "type" });
   return (
-    <>{item.type === "A" && <div className={styles["cover-layout"]}></div>}</>
+    <>
+      {type === "A" && (
+        <div className={styles["cover-layout"]}>
+          <Inspector />
+        </div>
+      )}
+    </>
   );
 }
