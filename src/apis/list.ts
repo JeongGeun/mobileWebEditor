@@ -8,5 +8,6 @@ export interface Block {
 
 export interface FormListType {
   type: TemplateType;
+  inspectorNumber: number;
   block: Block;
 }

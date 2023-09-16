@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function Editor() {
   const methods = useForm<FormListType>({
-    defaultValues: { type: "A" },
+    defaultValues: { type: "A", inspectorNumber: 0 },
   });
 
   const setTemplateType = (type: TemplateType) => {
