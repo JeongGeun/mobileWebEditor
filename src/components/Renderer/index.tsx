@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./index.module.scss";
 import { useWatch } from "react-hook-form";
-import type { FormListType } from "@/apis/list";
 import TemplateA from "../Template/A";
 
 export default function Renderer() {

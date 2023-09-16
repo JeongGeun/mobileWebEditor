@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./index.module.scss";
 import { useFormContext } from "react-hook-form";
 import { useMemo } from "react";
+import { DAYS } from "@/constant/date";
 
 interface CoverProps {
   onSectionClick: VoidFunction;
@@ -17,25 +18,27 @@ export default function Cover({ onSectionClick }: CoverProps) {
 
       return {
         month: targetDate.getMonth() + 1,
-        day: targetDate.getDate(),
+        date: targetDate.getDate(),
+        day: targetDate.getDay(),
         hour: targetDate.getHours(),
         min: targetDate.getMinutes(),
       };
     }
     return {
       month: "00",
-      day: "00",
+      date: "00",
       hour: "00",
       min: "00",
+      day: 0,
     };
   }, [dates]);
 
-  const { month, day, hour, min } = getDate;
+  const { month, date, hour, min, day } = getDate;
 
   return (
     <div className={styles.layout} onClick={onSectionClick}>
       <p className={styles.date}>
-        {month}월 {day}일
+        {month}월 {date}일
       </p>
       <Image
         src="https://www.itscard.co.kr/mobile/new_m/mcard/images/mcard_29/visual_01.jpg"
@@ -47,7 +50,7 @@ export default function Cover({ onSectionClick }: CoverProps) {
         {watch("block.husbandName")} / {watch("block.wifeName")}
       </div>
       <div className={styles.content}>
-        토요일 오후 {hour}시 {min}분
+        {DAYS[day]}요일 오후 {hour}시 {min}분
         <br /> {watch("block.place")}
       </div>
     </div>

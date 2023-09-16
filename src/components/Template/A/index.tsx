@@ -11,7 +11,6 @@ export default function TemplateA() {
   return (
     <>
       <Cover onSectionClick={() => onSectionClick(0)} />
-      <div onClick={() => onSectionClick(1)}>123</div>
     </>
   );
 }
