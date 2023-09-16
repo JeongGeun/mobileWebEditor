@@ -1,0 +1,10 @@
+.inspector-layout {
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .container + .container {
+    margin-top: 30px;
+  }
+}

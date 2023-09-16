@@ -3069,6 +3069,7 @@ __metadata:
     next: 13.4.12
     react: 18.2.0
     react-dom: 18.2.0
+    react-hook-form: ^7.46.0
     sass: ^1.65.1
     typescript: 5.1.6
     typescript-plugin-css-modules: ^5.0.1
@@ -4200,6 +4201,15 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.46.0":
+  version: 7.46.0
+  resolution: "react-hook-form@npm:7.46.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: cc8f054d964206df1da115e0cf7c2d03dd1b28e8ccb943e455bdcdb256fa9bc33bb2e1b437403631e4d0d94478f342feea2621cca4a9ef84eeb14442804f8146
   languageName: node
   linkType: hard
 
