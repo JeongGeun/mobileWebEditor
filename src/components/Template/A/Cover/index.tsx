@@ -38,7 +38,7 @@ export default function Cover({ onSectionClick }: CoverProps) {
   return (
     <div className={styles.layout} onClick={onSectionClick}>
       <p className={styles.date}>
-        {month}월 {date}일
+        {month}월{date}일
       </p>
       <Image
         src="https://www.itscard.co.kr/mobile/new_m/mcard/images/mcard_29/visual_01.jpg"

@@ -4,9 +4,8 @@ import { Layout } from "antd";
 import Renderer from "@/components/Renderer";
 import Toolbar from "@/components/Toolbar";
 import Sider from "@/components/Sider";
-import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import type { FormListType, TemplateType } from "@/apis/list";
-import { useState } from "react";
 
 export default function Editor() {
   const methods = useForm<FormListType>({

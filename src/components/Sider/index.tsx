@@ -7,12 +7,8 @@ export default function Sider() {
   const inspectorNumber = useWatch({ name: "inspectorNumber" });
 
   return (
-    <>
-      {type === "A" && (
-        <div className={styles["cover-layout"]}>
-          {inspectorNumber === 0 && <Inspector />}
-        </div>
-      )}
-    </>
+    <div className={styles["cover-layout"]}>
+      {type === "A" && <>{inspectorNumber === 0 && <Inspector />}</>}
+    </div>
   );
 }
