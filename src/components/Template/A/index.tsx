@@ -12,7 +12,7 @@ export default function TemplateA() {
   return (
     <>
       <Cover onSectionClick={() => onSectionClick(0)} />
-      <Message />
+      <Message onSectionClick={() => onSectionClick(1)} />
     </>
   );
 }
