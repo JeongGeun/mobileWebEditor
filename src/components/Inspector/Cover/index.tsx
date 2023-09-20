@@ -2,7 +2,7 @@ import { DatePicker, DatePickerProps, Input } from "antd";
 import { Controller } from "react-hook-form";
 import styles from "./index.module.scss";
 
-export default function Inspector() {
+export default function CoverInspector() {
   return (
     <div className={styles["inspector-layout"]}>
       <Controller

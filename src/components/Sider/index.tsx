@@ -1,4 +1,5 @@
-import Inspector from "../Inspector";
+import CoverInspector from "../Inspector/Cover";
+import MessageInspector from "../Inspector/Message";
 import styles from "./index.module.scss";
 import { useWatch } from "react-hook-form";
 
@@ -8,7 +9,12 @@ export default function Sider() {
 
   return (
     <div className={styles["cover-layout"]}>
-      {type === "A" && <>{inspectorNumber === 0 && <Inspector />}</>}
+      {type === "A" && (
+        <>
+          {inspectorNumber === 0 && <CoverInspector />}
+          {inspectorNumber === 1 && <MessageInspector />}
+        </>
+      )}
     </div>
   );
 }

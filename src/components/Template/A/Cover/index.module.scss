@@ -8,9 +8,10 @@
   padding: 100px 60px;
 
   font-family: sans-serif, "helvetica", serif, "AppleGothic";
+  cursor: pointer;
 
   &:hover {
-    border: 3px solid yellow;
+    border: 3px dashed black;
   }
 
   .date {
