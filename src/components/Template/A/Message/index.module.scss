@@ -36,4 +36,38 @@
 
     white-space: pre-wrap;
   }
+
+  .info {
+    text-align: center;
+    .row {
+      display: flex;
+      justify-content: center;
+      vertical-align: top;
+
+      font-size: 0.813rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+      white-space: pre-wrap;
+
+      .bullet {
+        position: relative;
+        display: inline-block;
+
+        width: 0.813rem;
+        line-height: 1.5rem;
+
+        &::after {
+          position: absolute;
+          content: ".";
+          display: block;
+
+          left: 0;
+          top: 0.1rem;
+
+          width: 100%;
+          line-height: 1;
+        }
+      }
+    }
+  }
 }
