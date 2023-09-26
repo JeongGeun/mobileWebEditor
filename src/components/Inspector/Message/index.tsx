@@ -23,6 +23,42 @@ export default function MessageInspector() {
           </div>
         )}
       />
+      <Controller
+        name="block.husbandFatherName"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>신랑 아버지 성함</label>
+            <Input {...field} />
+          </div>
+        )}
+      />
+      <Controller
+        name="block.husbandMotherName"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>신랑 어머니 성함</label>
+            <Input {...field} />
+          </div>
+        )}
+      />
+      <Controller
+        name="block.wifeFatherName"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>신부 아버지 성함</label>
+            <Input {...field} />
+          </div>
+        )}
+      />
+      <Controller
+        name="block.wifeMotherName"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>신부 어머니 성함</label>
+            <Input {...field} />
+          </div>
+        )}
+      />
     </div>
   );
 }

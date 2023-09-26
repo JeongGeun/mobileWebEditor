@@ -1,28 +1,47 @@
-import { useWatch } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 import styles from "./index.module.scss";
 
 interface MessageProps {
   onSectionClick: VoidFunction;
 }
 
+const DEFAULT_NAME = "OOO";
 export default function Message({ onSectionClick }: MessageProps) {
-  const title = useWatch({ name: "block.messageTitle" });
-  const text = useWatch({ name: "block.messageContent" });
+  const { watch } = useFormContext();
+  const [
+    title,
+    content,
+    husbandFatherName,
+    husbandMotherName,
+    wifeFatherName,
+    wifeMotherName,
+  ] = watch([
+    "block.messageTitle",
+    "block.messageContent",
+    "block.husbandFatherName",
+    "block.husbandMotherName",
+    "block.wifeFatherName",
+    "block.wifeMotherName",
+  ]);
 
   return (
     <div className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>{title || "제목은 여기에"}</div>
-      <div className={styles.content}>{text || "문구는 여기에"}</div>
+      <div className={styles.content}>{content || "문구는 여기에"}</div>
       <div className={styles.info}>
         <div className={styles.row}>
-          <div>조용오</div>
+          <span>{husbandFatherName || DEFAULT_NAME}</span>
           <span className={styles.bullet} />
-          <div>김현숙의 장남 정근</div>
+          <span>{husbandMotherName || DEFAULT_NAME}</span>
+          <span className={styles.small}>의 장남</span>
+          <span className={styles.hero}>OOO</span>
         </div>
         <div className={styles.row}>
-          김체린
+          <span>{wifeFatherName || DEFAULT_NAME}</span>
           <span className={styles.bullet} />
-          김체린의 장녀 체린
+          <span>{wifeMotherName || DEFAULT_NAME}</span>
+          <span className={styles.small}>의 장녀</span>
+          <span className={styles.hero}>OOO</span>
         </div>
       </div>
     </div>

@@ -42,31 +42,37 @@
     .row {
       display: flex;
       justify-content: center;
-      vertical-align: top;
+      align-items: baseline;
+
+      height: 1.5rem;
 
       font-size: 0.813rem;
       line-height: 1.5rem;
       font-weight: 400;
       white-space: pre-wrap;
 
+      .small {
+        font-size: 0.625rem;
+        font-weight: 300;
+      }
+
       .bullet {
         position: relative;
-        display: inline-block;
-
+        height: 1.5rem;
         width: 0.813rem;
-        line-height: 1.5rem;
 
         &::after {
           position: absolute;
           content: ".";
-          display: block;
-
           left: 0;
-          top: 0.1rem;
+          top: 0.15rem;
 
           width: 100%;
-          line-height: 1;
         }
+      }
+
+      .hero {
+        margin-left: 10px;
       }
     }
   }
