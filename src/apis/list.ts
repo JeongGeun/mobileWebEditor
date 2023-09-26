@@ -6,6 +6,10 @@ export interface Block {
   place: string;
   messageTitle: string;
   messageContent: string;
+  husbandFatherName: string;
+  husbandMotherName: string;
+  wifeFatherName: string;
+  wifeMotherName: string;
 }
 
 export interface FormListType {

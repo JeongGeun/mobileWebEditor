@@ -36,4 +36,44 @@
 
     white-space: pre-wrap;
   }
+
+  .info {
+    text-align: center;
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+
+      height: 1.5rem;
+
+      font-size: 0.813rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+      white-space: pre-wrap;
+
+      .small {
+        font-size: 0.625rem;
+        font-weight: 300;
+      }
+
+      .bullet {
+        position: relative;
+        height: 1.5rem;
+        width: 0.813rem;
+
+        &::after {
+          position: absolute;
+          content: ".";
+          left: 0;
+          top: 0.15rem;
+
+          width: 100%;
+        }
+      }
+
+      .hero {
+        margin-left: 10px;
+      }
+    }
+  }
 }
