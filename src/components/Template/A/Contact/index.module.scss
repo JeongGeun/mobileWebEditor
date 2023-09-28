@@ -22,4 +22,75 @@
       }
     }
   }
+
+  .tel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1.875rem 0;
+
+    .row {
+      display: flex;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 2.25rem;
+      color: #111;
+      min-height: 3rem;
+      > div {
+        margin-left: 1.25rem;
+      }
+    }
+  }
+
+  .parentTel {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    text-align: center;
+    .title {
+      background: #f4f4f4;
+    }
+    .parentTable {
+      padding: 1.563rem 2.25rem 1.875rem;
+      display: flex;
+      .col {
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        justify-content: center;
+
+        .husbandText {
+          color: #85b791;
+        }
+        .wifeText {
+          color: #5b1eaa;
+        }
+
+        .telContent {
+          padding: 0.625rem;
+          font-size: 0.688rem;
+          font-weight: 400;
+          line-height: 1.25rem;
+          color: #999;
+          white-space: pre-wrap;
+
+          .buttonSection {
+            margin-top: 1rem;
+          }
+          .name {
+            font-size: 0.875rem;
+            color: #111;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .buttonGroup {
+    > button + button {
+      margin-left: 1.25rem;
+    }
+  }
 }
