@@ -1,11 +1,11 @@
-import { useFormContext, useWatch } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import styles from "./index.module.scss";
+import { DEFAULT_NAME } from "@/constant/default";
 
 interface MessageProps {
   onSectionClick: VoidFunction;
 }
 
-const DEFAULT_NAME = "OOO";
 export default function Message({ onSectionClick }: MessageProps) {
   const { watch } = useFormContext();
   const [

@@ -1,13 +1,41 @@
 import { Button } from "antd";
 import styles from "./index.module.scss";
 import { PhoneFilled, MessageFilled } from "@ant-design/icons";
+import { useFormContext } from "react-hook-form";
+import { DEFAULT_NAME } from "@/constant/default";
 
 interface ContactProps {
   onSectionClick: VoidFunction;
 }
 
 export default function Contact({ onSectionClick }: ContactProps) {
-  const onClickContactButton = (type: "TEL" | "SMS", phoneNumber: number) => {
+  const { watch } = useFormContext();
+  const [
+    invitationText,
+    husbandFatherName,
+    husbandMotherName,
+    wifeFatherName,
+    wifeMotherName,
+    husbandTel,
+    wifeTel,
+    husbandFatherTel,
+    husbandMotherTel,
+    wifeFatherTel,
+    wifeMotherTel,
+  ] = watch([
+    "block.invitationText",
+    "block.husbandFatherName",
+    "block.husbandMotherName",
+    "block.wifeFatherName",
+    "block.wifeMotherName",
+    "block.husbandTel",
+    "block.wifeTel",
+    "block.husbandFatherTel",
+    "block.husbandMotherTel",
+    "block.wifeFatherTel",
+    "block.wifeMotherTel",
+  ]);
+  const onClickContactButton = (type: "TEL" | "SMS", phoneNumber: string) => {
     if (type === "TEL") {
       document.location.href = `tel:${phoneNumber}`;
     } else {
@@ -26,7 +54,9 @@ export default function Contact({ onSectionClick }: ContactProps) {
         }}
       >
         <div className={styles.imageContent}>
-          <p className={styles.invitation}>소중한 당신을 환영합니다.</p>
+          <p className={styles.invitation}>
+            {invitationText || "한 줄 초대 문구를 써주세요."}
+          </p>
         </div>
       </section>
       <section className={styles.tel}>
@@ -40,13 +70,13 @@ export default function Contact({ onSectionClick }: ContactProps) {
                 type="primary"
                 shape="circle"
                 icon={<PhoneFilled />}
-                onClick={() => onClickContactButton("TEL", 11)}
+                onClick={() => onClickContactButton("TEL", husbandTel)}
               />
               <Button
                 type="primary"
                 shape="circle"
                 icon={<MessageFilled />}
-                onClick={() => onClickContactButton("SMS", 11)}
+                onClick={() => onClickContactButton("SMS", husbandTel)}
               />
             </div>
           </div>
@@ -59,13 +89,13 @@ export default function Contact({ onSectionClick }: ContactProps) {
                 type="primary"
                 shape="circle"
                 icon={<PhoneFilled />}
-                onClick={() => onClickContactButton("TEL", 11)}
+                onClick={() => onClickContactButton("TEL", wifeTel)}
               />
               <Button
                 type="primary"
                 shape="circle"
                 icon={<MessageFilled />}
-                onClick={() => onClickContactButton("SMS", 11)}
+                onClick={() => onClickContactButton("SMS", wifeTel)}
               />
             </div>
           </div>
@@ -79,7 +109,9 @@ export default function Contact({ onSectionClick }: ContactProps) {
             <div className={styles.telContent}>
               <div>
                 <span>아버지</span>
-                <strong className={styles.name}>이석훈</strong>
+                <strong className={styles.name}>
+                  {husbandFatherName || DEFAULT_NAME}
+                </strong>
               </div>
               <div className={styles.buttonSection}>
                 <div className={styles.buttonGroup}>
@@ -87,13 +119,17 @@ export default function Contact({ onSectionClick }: ContactProps) {
                     type="primary"
                     shape="circle"
                     icon={<PhoneFilled />}
-                    onClick={() => onClickContactButton("TEL", 11)}
+                    onClick={() =>
+                      onClickContactButton("TEL", husbandFatherTel)
+                    }
                   />
                   <Button
                     type="primary"
                     shape="circle"
                     icon={<MessageFilled />}
-                    onClick={() => onClickContactButton("SMS", 11)}
+                    onClick={() =>
+                      onClickContactButton("SMS", husbandFatherTel)
+                    }
                   />
                 </div>
               </div>
@@ -101,7 +137,9 @@ export default function Contact({ onSectionClick }: ContactProps) {
             <div className={styles.telContent}>
               <div>
                 <span>어머니</span>
-                <strong className={styles.name}>이미자</strong>
+                <strong className={styles.name}>
+                  {husbandMotherName || DEFAULT_NAME}
+                </strong>
               </div>
               <div className={styles.buttonSection}>
                 <div className={styles.buttonGroup}>
@@ -109,13 +147,17 @@ export default function Contact({ onSectionClick }: ContactProps) {
                     type="primary"
                     shape="circle"
                     icon={<PhoneFilled />}
-                    onClick={() => onClickContactButton("TEL", 11)}
+                    onClick={() =>
+                      onClickContactButton("TEL", husbandMotherTel)
+                    }
                   />
                   <Button
                     type="primary"
                     shape="circle"
                     icon={<MessageFilled />}
-                    onClick={() => onClickContactButton("SMS", 11)}
+                    onClick={() =>
+                      onClickContactButton("SMS", husbandMotherTel)
+                    }
                   />
                 </div>
               </div>
@@ -126,7 +168,9 @@ export default function Contact({ onSectionClick }: ContactProps) {
             <div className={styles.telContent}>
               <div>
                 <span>아버지</span>
-                <strong className={styles.name}>유성령</strong>
+                <strong className={styles.name}>
+                  {wifeFatherName || DEFAULT_NAME}
+                </strong>
               </div>
               <div className={styles.buttonSection}>
                 <div className={styles.buttonGroup}>
@@ -134,13 +178,13 @@ export default function Contact({ onSectionClick }: ContactProps) {
                     type="primary"
                     shape="circle"
                     icon={<PhoneFilled />}
-                    onClick={() => onClickContactButton("TEL", 11)}
+                    onClick={() => onClickContactButton("TEL", wifeFatherTel)}
                   />
                   <Button
                     type="primary"
                     shape="circle"
                     icon={<MessageFilled />}
-                    onClick={() => onClickContactButton("SMS", 11)}
+                    onClick={() => onClickContactButton("SMS", wifeFatherTel)}
                   />
                 </div>
               </div>
@@ -148,7 +192,9 @@ export default function Contact({ onSectionClick }: ContactProps) {
             <div className={styles.telContent}>
               <div>
                 <span>어머니</span>
-                <strong className={styles.name}>이미자</strong>
+                <strong className={styles.name}>
+                  {wifeMotherName || DEFAULT_NAME}
+                </strong>
               </div>
               <div className={styles.buttonSection}>
                 <div className={styles.buttonGroup}>
@@ -156,13 +202,13 @@ export default function Contact({ onSectionClick }: ContactProps) {
                     type="primary"
                     shape="circle"
                     icon={<PhoneFilled />}
-                    onClick={() => onClickContactButton("TEL", 11)}
+                    onClick={() => onClickContactButton("TEL", wifeMotherTel)}
                   />
                   <Button
                     type="primary"
                     shape="circle"
                     icon={<MessageFilled />}
-                    onClick={() => onClickContactButton("SMS", 11)}
+                    onClick={() => onClickContactButton("SMS", wifeMotherTel)}
                   />
                 </div>
               </div>
