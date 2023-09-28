@@ -19,6 +19,15 @@ export default function Calendar({ onSectionClick }: CalendarProps) {
 
   return (
     <section className={styles.layout}>
+      <div className={styles.header}>
+        <span className={styles.month}>
+          <strong>10</strong> October
+        </span>
+        <span className={styles.day}>
+          <span>sat.</span>
+          <span>pm 1:30</span>
+        </span>
+      </div>
       <DynamicCalendar
         className={styles.calendar}
         formatDay={(_, date) => dayjs(date).format("D")}
@@ -32,6 +41,7 @@ export default function Calendar({ onSectionClick }: CalendarProps) {
           date.getDate() !== value.getDate() ||
           date.getMonth() !== value.getMonth()
         }
+        showNavigation={false}
       />
     </section>
   );
