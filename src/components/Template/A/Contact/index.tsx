@@ -35,12 +35,31 @@ export default function Contact({ onSectionClick }: ContactProps) {
     "block.wifeFatherTel",
     "block.wifeMotherTel",
   ]);
+
+  const heroList = [
+    { name: "신랑", tel: husbandTel },
+    { name: "신부", tel: wifeTel },
+  ];
+
+  const heroParentList = [
+    {
+      name: "신랑",
+      parentInfo: [
+        { name: husbandFatherName, tel: husbandFatherTel, type: "아버지" },
+        { name: husbandMotherName, tel: husbandMotherTel, type: "어머니" },
+      ],
+    },
+    {
+      name: "신부",
+      parentInfo: [
+        { name: wifeFatherName, tel: wifeFatherTel, type: "아버지" },
+        { name: wifeMotherName, tel: wifeMotherTel, type: "어머니" },
+      ],
+    },
+  ];
+
   const onClickContactButton = (type: "TEL" | "SMS", phoneNumber: string) => {
-    if (type === "TEL") {
-      document.location.href = `tel:${phoneNumber}`;
-    } else {
-      document.location.href = `sms:${phoneNumber}`;
-    }
+    document.location.href = `${type.toLocaleLowerCase()}:${phoneNumber}`;
   };
 
   return (
@@ -60,160 +79,62 @@ export default function Contact({ onSectionClick }: ContactProps) {
         </div>
       </section>
       <section className={styles.tel}>
-        <div>
-          <div className={styles.row}>
+        {heroList.map(({ name, tel }) => (
+          <div className={styles.row} key={name}>
             <div>
-              <strong>신랑</strong>에게 연락하기
+              <strong>{name}</strong>에게 연락하기
             </div>
             <div className={styles.buttonGroup}>
               <Button
                 type="primary"
                 shape="circle"
                 icon={<PhoneFilled />}
-                onClick={() => onClickContactButton("TEL", husbandTel)}
+                onClick={() => onClickContactButton("TEL", tel)}
               />
               <Button
                 type="primary"
                 shape="circle"
                 icon={<MessageFilled />}
-                onClick={() => onClickContactButton("SMS", husbandTel)}
+                onClick={() => onClickContactButton("SMS", tel)}
               />
             </div>
           </div>
-          <div className={styles.row}>
-            <div>
-              <strong>신부</strong>에게 연락하기
-            </div>
-            <div className={styles.buttonGroup}>
-              <Button
-                type="primary"
-                shape="circle"
-                icon={<PhoneFilled />}
-                onClick={() => onClickContactButton("TEL", wifeTel)}
-              />
-              <Button
-                type="primary"
-                shape="circle"
-                icon={<MessageFilled />}
-                onClick={() => onClickContactButton("SMS", wifeTel)}
-              />
-            </div>
-          </div>
-        </div>
+        ))}
       </section>
       <section className={styles.parentTel}>
         <div className={styles.title}>혼주에게 연락하기</div>
         <div className={styles.parentTable}>
-          <div className={styles.col}>
-            <div className={styles.husbandText}>신랑측 혼주</div>
-            <div className={styles.telContent}>
-              <div>
-                <span>아버지</span>
-                <strong className={styles.name}>
-                  {husbandFatherName || DEFAULT_NAME}
-                </strong>
-              </div>
-              <div className={styles.buttonSection}>
-                <div className={styles.buttonGroup}>
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<PhoneFilled />}
-                    onClick={() =>
-                      onClickContactButton("TEL", husbandFatherTel)
-                    }
-                  />
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<MessageFilled />}
-                    onClick={() =>
-                      onClickContactButton("SMS", husbandFatherTel)
-                    }
-                  />
+          {heroParentList.map(({ name, parentInfo }) => (
+            <div className={styles.col} key={name}>
+              <div className={styles.husbandText}>{name}측 혼주</div>
+              {parentInfo.map(({ type, name, tel }) => (
+                <div className={styles.telContent} key={name}>
+                  <div>
+                    <span>{type}</span>
+                    <strong className={styles.name}>
+                      {name || DEFAULT_NAME}
+                    </strong>
+                  </div>
+                  <div className={styles.buttonSection}>
+                    <div className={styles.buttonGroup}>
+                      <Button
+                        type="primary"
+                        shape="circle"
+                        icon={<PhoneFilled />}
+                        onClick={() => onClickContactButton("TEL", tel)}
+                      />
+                      <Button
+                        type="primary"
+                        shape="circle"
+                        icon={<MessageFilled />}
+                        onClick={() => onClickContactButton("SMS", tel)}
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-            <div className={styles.telContent}>
-              <div>
-                <span>어머니</span>
-                <strong className={styles.name}>
-                  {husbandMotherName || DEFAULT_NAME}
-                </strong>
-              </div>
-              <div className={styles.buttonSection}>
-                <div className={styles.buttonGroup}>
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<PhoneFilled />}
-                    onClick={() =>
-                      onClickContactButton("TEL", husbandMotherTel)
-                    }
-                  />
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<MessageFilled />}
-                    onClick={() =>
-                      onClickContactButton("SMS", husbandMotherTel)
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.col}>
-            <div className={styles.wifeText}>신부측 혼주</div>
-            <div className={styles.telContent}>
-              <div>
-                <span>아버지</span>
-                <strong className={styles.name}>
-                  {wifeFatherName || DEFAULT_NAME}
-                </strong>
-              </div>
-              <div className={styles.buttonSection}>
-                <div className={styles.buttonGroup}>
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<PhoneFilled />}
-                    onClick={() => onClickContactButton("TEL", wifeFatherTel)}
-                  />
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<MessageFilled />}
-                    onClick={() => onClickContactButton("SMS", wifeFatherTel)}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className={styles.telContent}>
-              <div>
-                <span>어머니</span>
-                <strong className={styles.name}>
-                  {wifeMotherName || DEFAULT_NAME}
-                </strong>
-              </div>
-              <div className={styles.buttonSection}>
-                <div className={styles.buttonGroup}>
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<PhoneFilled />}
-                    onClick={() => onClickContactButton("TEL", wifeMotherTel)}
-                  />
-                  <Button
-                    type="primary"
-                    shape="circle"
-                    icon={<MessageFilled />}
-                    onClick={() => onClickContactButton("SMS", wifeMotherTel)}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
