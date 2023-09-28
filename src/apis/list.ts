@@ -4,6 +4,7 @@ export interface Block {
   husbandName: string;
   wifeName: string;
   place: string;
+  date: string;
   messageTitle: string;
   messageContent: string;
   husbandFatherName: string;

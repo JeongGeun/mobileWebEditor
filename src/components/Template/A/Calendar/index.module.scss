@@ -1,0 +1,20 @@
+.layout {
+  padding: 1.25rem 1rem;
+  background-color: #f4f4f4;
+  &:hover {
+    border: 3px dashed black;
+  }
+  .calendar {
+    border-radius: 10px;
+    padding: 0 0.75rem 1rem;
+    cursor: none;
+
+    :global .react-calendar__tile:disabled {
+      background-color: white !important;
+    }
+    :global .react-calendar__tile--active {
+      border-radius: 10px;
+      background-color: black;
+    }
+  }
+}

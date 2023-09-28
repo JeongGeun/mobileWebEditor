@@ -2,6 +2,7 @@ import React from "react";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
 import AppLayout from "@/components/Layout";
+import "react-calendar/dist/Calendar.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

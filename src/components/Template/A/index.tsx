@@ -2,6 +2,7 @@ import { useFormContext } from "react-hook-form";
 import Cover from "./Cover";
 import Message from "./Message";
 import Contact from "./Contact";
+import Calendar from "./Calendar";
 
 export default function TemplateA() {
   const { setValue } = useFormContext();
@@ -15,6 +16,7 @@ export default function TemplateA() {
       <Cover onSectionClick={() => onSectionClick(0)} />
       <Message onSectionClick={() => onSectionClick(1)} />
       <Contact onSectionClick={() => onSectionClick(2)} />
+      <Calendar onSectionClick={() => onSectionClick(3)} />
     </>
   );
 }
