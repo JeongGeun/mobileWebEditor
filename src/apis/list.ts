@@ -10,6 +10,13 @@ export interface Block {
   husbandMotherName: string;
   wifeFatherName: string;
   wifeMotherName: string;
+  invitationText: string;
+  husbandTel: string;
+  wifeTel: string;
+  husbandFatherTel: string;
+  husbandMotherTel: string;
+  wifeFatherTel: string;
+  wifeMotherTel: string;
 }
 
 export interface FormListType {

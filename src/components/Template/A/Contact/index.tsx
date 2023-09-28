@@ -22,7 +22,7 @@ export default function Contact({ onSectionClick }: ContactProps) {
         style={{
           background: `url(
             "https://www.itscard.co.kr/mobile/new_m/mcard/images/mcard_29/banner_01.jpg"
-          ) center center no-repeat`,
+          ) center / 100% no-repeat`,
         }}
       >
         <div className={styles.imageContent}>

@@ -1,3 +1,4 @@
+import ContactInspector from "../Inspector/Contact";
 import CoverInspector from "../Inspector/Cover";
 import MessageInspector from "../Inspector/Message";
 import styles from "./index.module.scss";
@@ -13,6 +14,7 @@ export default function Sider() {
         <>
           {inspectorNumber === 0 && <CoverInspector />}
           {inspectorNumber === 1 && <MessageInspector />}
+          {inspectorNumber === 2 && <ContactInspector />}
         </>
       )}
     </div>
