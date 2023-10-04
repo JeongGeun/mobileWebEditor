@@ -1,0 +1,52 @@
+.layout {
+  padding: 1.25rem 1rem;
+  background-color: #f4f4f4;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    padding: 0.625rem 1.563rem 0.938rem;
+
+    background-color: white;
+
+    .month {
+      font-size: 0.75rem;
+      line-height: 2.5rem;
+
+      strong {
+        font-size: 1.25rem;
+      }
+    }
+
+    .day {
+      font-size: 0.875rem;
+      span + span {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+  .calendar {
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 0.75rem 1rem;
+    cursor: none;
+
+    :global .react-calendar__navigation__arrow {
+      display: none;
+    }
+
+    :global .react-calendar__tile:disabled {
+      background-color: white !important;
+    }
+    :global .react-calendar__tile--active {
+      border-radius: 10px;
+      background-color: black;
+    }
+  }
+}
