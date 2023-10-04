@@ -47,6 +47,7 @@
     :global .react-calendar__tile--active {
       border-radius: 10px;
       background-color: black;
+      cursor: default !important;
     }
   }
 }

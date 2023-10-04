@@ -2,30 +2,35 @@ import dynamic from "next/dynamic";
 import { useFormContext } from "react-hook-form";
 import dayjs from "dayjs";
 import styles from "./index.module.scss";
+import { ENG_DAYS, ENG_MONTH } from "@/constant/date";
 
 const DynamicCalendar = dynamic(() => import("react-calendar"), { ssr: false });
 
 interface CalendarProps {
   onSectionClick: VoidFunction;
 }
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Calendar({ onSectionClick }: CalendarProps) {
   const { watch } = useFormContext();
-  const date = watch("block.date");
-  const value = date ? new Date(date) : new Date();
+  const formValueDate = watch("block.date");
+  const value = formValueDate ? new Date(formValueDate) : new Date();
+  const hour = value.getHours();
+  const min = value.getMinutes();
+  const day = ENG_DAYS[value.getDay()];
+  const month = value.getMonth();
+  const noonWord = hour / 12 >= 1 ? "pm" : "am";
 
   return (
     <section className={styles.layout}>
       <div className={styles.header}>
         <span className={styles.month}>
-          <strong>10</strong> October
+          <strong>{month + 1}</strong> {ENG_MONTH[month]}
         </span>
         <span className={styles.day}>
-          <span>sat.</span>
-          <span>pm 1:30</span>
+          <span>{day}.</span>
+          <span>
+            {noonWord} {hour === 12 ? 12 : hour % 12}:{min}
+          </span>
         </span>
       </div>
       <DynamicCalendar
