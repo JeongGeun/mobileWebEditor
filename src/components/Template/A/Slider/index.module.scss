@@ -20,4 +20,19 @@
       background-color: #0c0c0c;
     }
   }
+  .container {
+    padding: 0 16px;
+    overflow: hidden;
+
+    .outer {
+      overflow: hidden;
+      .wrapper {
+        max-width: 100%;
+        position: relative;
+        ul {
+          list-style: none;
+        }
+      }
+    }
+  }
 }
