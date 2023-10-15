@@ -26,17 +26,15 @@
 
     .outer {
       overflow: hidden;
+
+      .inner {
+        margin-top: 5px;
+      }
+
       .wrapper {
         max-width: 100%;
         position: relative;
-        .slide {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          background: #f4f4f4;
-        }
+
         :global .swiper-pagination {
           top: auto;
           bottom: 0 !important;
@@ -44,4 +42,14 @@
       }
     }
   }
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+  object-fit: cover;
 }
