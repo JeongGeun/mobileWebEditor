@@ -1,5 +1,7 @@
 import styles from "./index.module.scss";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
 const mockArray = Array.from({ length: 12 }, (_, i) => String(i + 1));
 
@@ -10,9 +12,17 @@ export default function Slider() {
       <div className={styles.container}>
         <div className={styles.outer}>
           <div className={styles.wrapper}>
-            <ul>
+            <Swiper
+              modules={[Pagination]}
+              spaceBetween={50}
+              pagination={{
+                type: "progressbar",
+              }}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
               {mockArray.map((num) => (
-                <li key={num}>
+                <SwiperSlide key={num} className={styles.slide}>
                   <Image
                     src={`https://www.itscard.co.kr/mobile/new_m/mcard/images/common/gallery_sample_${num.padStart(
                       2,
@@ -22,9 +32,9 @@ export default function Slider() {
                     width={230}
                     height={343}
                   />
-                </li>
+                </SwiperSlide>
               ))}
-            </ul>
+            </Swiper>
           </div>
         </div>
       </div>
