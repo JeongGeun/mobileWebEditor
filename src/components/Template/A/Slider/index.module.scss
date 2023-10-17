@@ -52,4 +52,17 @@
   height: 100%;
   background: #f4f4f4;
   object-fit: cover;
+
+  .blur {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
 }
