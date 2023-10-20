@@ -53,7 +53,7 @@ export default function Slider() {
             <Swiper
               modules={[Controller]}
               slidesPerView={5}
-              spaceBetween={5}
+              ///  spaceBetween={5}
               onSwiper={setSecondControlledSwiper}
               controller={{ control: firstControlledSwiper }}
               onClick={(swiper) => {
@@ -61,6 +61,7 @@ export default function Slider() {
               }}
               allowTouchMove={false}
               centeredSlides
+              //centeredSlidesBounds
             >
               {mockArray.map((num, index) => (
                 <SwiperSlide key={`mini_${num}`} className={styles.slide}>
