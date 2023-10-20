@@ -61,7 +61,6 @@ export default function Slider() {
               }}
               allowTouchMove={false}
               centeredSlides
-              //centeredSlidesBounds
             >
               {mockArray.map((num, index) => (
                 <SwiperSlide key={`mini_${num}`} className={styles.slide}>
