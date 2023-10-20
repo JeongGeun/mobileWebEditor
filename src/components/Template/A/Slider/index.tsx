@@ -10,7 +10,10 @@ const cx = cs.bind(styles);
 const mockArray = Array.from({ length: 12 }, (_, i) => String(i + 1));
 
 export default function Slider() {
-  const [controlledSwiper, setControlledSwiper] = useState<SwiperCore>();
+  const [firstControlledSwiper, setFirstControlledSwiper] =
+    useState<SwiperCore>();
+  const [secondControlledSwiper, setSecondControlledSwiper] =
+    useState<SwiperCore>();
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -21,11 +24,15 @@ export default function Slider() {
           <div className={styles.wrapper}>
             <Swiper
               modules={[Pagination, Controller]}
-              spaceBetween={50}
+              spaceBetween={5}
               pagination={{
                 type: "progressbar",
               }}
-              onSwiper={setControlledSwiper}
+              onSwiper={setFirstControlledSwiper}
+              onSlideChange={(swiper) => {
+                setActiveIndex(swiper.activeIndex);
+              }}
+              controller={{ control: secondControlledSwiper }}
             >
               {mockArray.map((num) => (
                 <SwiperSlide key={num} className={styles.slide}>
@@ -47,12 +54,13 @@ export default function Slider() {
               modules={[Controller]}
               slidesPerView={5}
               spaceBetween={5}
-              controller={{ control: controlledSwiper }}
+              onSwiper={setSecondControlledSwiper}
+              controller={{ control: firstControlledSwiper }}
               onClick={(swiper) => {
-                controlledSwiper?.slideTo(swiper.clickedIndex);
-                setActiveIndex(swiper.clickedIndex);
+                firstControlledSwiper?.slideTo(swiper.clickedIndex);
               }}
-              noSwiping
+              allowTouchMove={false}
+              centeredSlides
             >
               {mockArray.map((num, index) => (
                 <SwiperSlide key={`mini_${num}`} className={styles.slide}>
