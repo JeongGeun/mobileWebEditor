@@ -32,6 +32,12 @@
       }
 
       .wrapper {
+        .inner {
+          :global .swiper-init {
+            display: none;
+          }
+        }
+
         max-width: 100%;
         position: relative;
 

@@ -62,10 +62,21 @@ export default function Slider({ onSectionClick }: SliderProps) {
               controller={{ control: firstControlledSwiper }}
               onClick={(swiper) => {
                 firstControlledSwiper?.slideTo(swiper.clickedIndex);
+                const elem = document.getElementsByClassName(
+                  "swiper-wrapper"
+                )[1] as HTMLDivElement;
+
+                if (swiper.clickedIndex <= 2) {
+                  elem.style.setProperty(
+                    "transform",
+                    "translate3d(0px,0px,0px)"
+                  );
+                }
               }}
               allowTouchMove={false}
               centeredSlides
               centeredSlidesBounds
+              containerModifierClass="swiper-init"
             >
               {mockArray.map((num, index) => (
                 <SwiperSlide key={`mini_${num}`} className={styles.slide}>
