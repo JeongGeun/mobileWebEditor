@@ -3,6 +3,10 @@ import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
 import AppLayout from "@/components/Layout";
 import "react-calendar/dist/Calendar.css";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const inter = Inter({ subsets: ["latin"] });
 

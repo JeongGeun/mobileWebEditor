@@ -1,5 +1,6 @@
 .container {
-  min-height: 660px;
+  max-height: 660px;
+  overflow: auto;
   background-color: white;
 
   margin: 30px auto;
