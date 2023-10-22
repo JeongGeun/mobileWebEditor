@@ -6,11 +6,7 @@ import { ENG_DAYS, ENG_MONTH } from "@/constant/date";
 
 const DynamicCalendar = dynamic(() => import("react-calendar"), { ssr: false });
 
-interface CalendarProps {
-  onSectionClick: VoidFunction;
-}
-
-export default function Calendar({ onSectionClick }: CalendarProps) {
+export default function Calendar() {
   const { watch } = useFormContext();
   const formValueDate = watch("block.date");
   const value = formValueDate ? new Date(formValueDate) : new Date();

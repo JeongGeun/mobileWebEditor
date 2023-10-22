@@ -9,7 +9,11 @@ import cs from "classnames/bind";
 const cx = cs.bind(styles);
 const mockArray = Array.from({ length: 12 }, (_, i) => String(i + 1));
 
-export default function Slider() {
+interface SliderProps {
+  onSectionClick: VoidFunction;
+}
+
+export default function Slider({ onSectionClick }: SliderProps) {
   const [firstControlledSwiper, setFirstControlledSwiper] =
     useState<SwiperCore>();
   const [secondControlledSwiper, setSecondControlledSwiper] =
@@ -17,7 +21,7 @@ export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>갤러리</div>
       <div className={styles.container}>
         <div className={styles.outer}>
@@ -53,7 +57,7 @@ export default function Slider() {
             <Swiper
               modules={[Controller]}
               slidesPerView={5}
-              ///  spaceBetween={5}
+              spaceBetween={5}
               onSwiper={setSecondControlledSwiper}
               controller={{ control: firstControlledSwiper }}
               onClick={(swiper) => {
@@ -61,6 +65,7 @@ export default function Slider() {
               }}
               allowTouchMove={false}
               centeredSlides
+              centeredSlidesBounds
             >
               {mockArray.map((num, index) => (
                 <SwiperSlide key={`mini_${num}`} className={styles.slide}>
