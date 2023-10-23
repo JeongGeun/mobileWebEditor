@@ -9,9 +9,10 @@ export async function POST(request: Request) {
 
   const command = new PutObjectCommand({
     Bucket: process.env.BUCKET_NAME,
-    Key: file.name,
+    Key: `${file.name}_${new Date().getTime()}`,
     Body: file,
   });
+
   try {
     const response = await client.send(command);
     console.log(response);
