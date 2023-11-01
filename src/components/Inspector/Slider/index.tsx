@@ -1,39 +1,27 @@
+import { useFileUploadMutation } from "@/queries/useFileUploadMutation";
 import styles from "./index.module.scss";
 import { UploadOutlined } from "@ant-design/icons";
-import type { UploadProps } from "antd";
+import type { UploadFile, UploadProps } from "antd";
 import { Button, Upload } from "antd";
-
-const props: UploadProps = {
-  onChange({ file, fileList }) {
-    if (file.status !== "uploading") {
-      console.log(file, fileList);
-    }
-  },
-  defaultFileList: [
-    {
-      uid: "1",
-      name: "xxx.png",
-      status: "uploading",
-      url: "http://www.baidu.com/xxx.png",
-      percent: 33,
-    },
-    {
-      uid: "2",
-      name: "yyy.png",
-      status: "done",
-      url: "http://www.baidu.com/yyy.png",
-    },
-    {
-      uid: "3",
-      name: "zzz.png",
-      status: "error",
-      response: "Server Error 500", // custom error message to show
-      url: "http://www.baidu.com/zzz.png",
-    },
-  ],
-};
+import { useState } from "react";
+import { File } from "buffer";
 
 export default function SliderInspector() {
+  const [fileList, setFileList] = useState<UploadFile<any>[]>([]);
+  const { mutate: fileUpload } = useFileUploadMutation();
+
+  const props: UploadProps = {
+    fileList,
+    customRequest({ file }) {
+      const formData = new FormData();
+      formData.append("file", file);
+      fileUpload(formData, {
+        onSuccess: () => {
+          console.log("success");
+        },
+      });
+    },
+  };
   return (
     <div className={styles.layout}>
       <Upload {...props}>

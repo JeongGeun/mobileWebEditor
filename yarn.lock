@@ -588,7 +588,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/region-config-resolver@npm:3.433.0":
+"@aws-sdk/region-config-resolver@npm:3.433.0, @aws-sdk/region-config-resolver@npm:^3.433.0":
   version: 3.433.0
   resolution: "@aws-sdk/region-config-resolver@npm:3.433.0"
   dependencies:
@@ -1670,6 +1670,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/debug@npm:^4":
+  version: 4.1.10
+  resolution: "@types/debug@npm:4.1.10"
+  dependencies:
+    "@types/ms": "*"
+  checksum: 938f79c5b610f851da9c67ecd8641a09b33ce9cb38fe4c9f4d20ee743d6bccb5d8e9a833a4cd23e0684a316622af67a0634fa706baea5a01f5219961d1976314
+  languageName: node
+  linkType: hard
+
+"@types/follow-redirects@npm:^1":
+  version: 1.14.3
+  resolution: "@types/follow-redirects@npm:1.14.3"
+  dependencies:
+    "@types/node": "*"
+  checksum: d93d893de5b4a9e6c601550ce866a14d125be94def10c3b59e332f59488381015c1ea0a941b795288bdb2a93996c333721c33b1e5023d3785b4f6012ff166542
+  languageName: node
+  linkType: hard
+
 "@types/json5@npm:^0.0.29":
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
@@ -1690,6 +1708,22 @@ __metadata:
   version: 4.14.199
   resolution: "@types/lodash@npm:4.14.199"
   checksum: e68d1fcbbfce953ed87b296a628573f62939227bcda0c934954e862b421e8a34c5e71cad6fea27b9980567909e6a4698f09025692958e36d64ea9ed99ec6fb2e
+  languageName: node
+  linkType: hard
+
+"@types/ms@npm:*":
+  version: 0.7.33
+  resolution: "@types/ms@npm:0.7.33"
+  checksum: 2cb5af611ace05ab2ae40422c8539850cf983197982bb04b83acf59e6e692e2faccf336a82ac4db97f7ea28f2baa0a8990fa5eb1cd72c5cab17b5b3609b0b650
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:*":
+  version: 20.8.9
+  resolution: "@types/node@npm:20.8.9"
+  dependencies:
+    undici-types: ~5.26.4
+  checksum: 0c05f3502a9507ff27e91dd6fd574fa6f391b3fafedcfe8e0c8d33351fb22d02c0121f854e5b6b3ecb9a8a468407ddf6e7ac0029fb236d4c7e1361ffc758a01f
   languageName: node
   linkType: hard
 
@@ -3176,7 +3210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.15.0, follow-redirects@npm:^1.15.3":
   version: 1.15.3
   resolution: "follow-redirects@npm:1.15.3"
   peerDependenciesMeta:
@@ -4404,7 +4438,10 @@ __metadata:
     "@ant-design/cssinjs": ^1.16.1
     "@ant-design/icons": ^5.2.5
     "@aws-sdk/client-s3": ^3.433.0
+    "@aws-sdk/region-config-resolver": ^3.433.0
     "@tanstack/react-query": ^5.0.5
+    "@types/debug": ^4
+    "@types/follow-redirects": ^1
     "@types/node": 20.4.5
     "@types/react": 18.2.17
     "@types/react-dom": 18.2.7
@@ -4412,14 +4449,17 @@ __metadata:
     axios: ^1.5.1
     classnames: ^2.3.2
     dayjs: ^1.11.10
+    debug: ^4.3.4
     eslint: 8.45.0
     eslint-config-next: 13.4.12
+    follow-redirects: ^1.15.3
     next: 13.4.12
     react: 18.2.0
     react-calendar: ^4.6.0
     react-dom: 18.2.0
     react-hook-form: ^7.46.0
     sass: ^1.65.1
+    supports-color: ^9.4.0
     swiper: ^10.3.1
     typescript: 5.1.6
     typescript-plugin-css-modules: ^5.0.1
@@ -6185,6 +6225,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"supports-color@npm:^9.4.0":
+  version: 9.4.0
+  resolution: "supports-color@npm:9.4.0"
+  checksum: cb8ff8daeaf1db642156f69a9aa545b6c01dd9c4def4f90a49f46cbf24be0c245d392fcf37acd119cd1819b99dad2cc9b7e3260813f64bcfd7f5b18b5a1eefb8
+  languageName: node
+  linkType: hard
+
 "supports-preserve-symlinks-flag@npm:^1.0.0":
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
@@ -6447,6 +6494,13 @@ __metadata:
     has-symbols: ^1.0.3
     which-boxed-primitive: ^1.0.2
   checksum: b7a1cf5862b5e4b5deb091672ffa579aa274f648410009c81cca63fed3b62b610c4f3b773f912ce545bb4e31edc3138975b5bc777fc6e4817dca51affb6380e9
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.26.4":
+  version: 5.26.5
+  resolution: "undici-types@npm:5.26.5"
+  checksum: 3192ef6f3fd5df652f2dc1cd782b49d6ff14dc98e5dced492aa8a8c65425227da5da6aafe22523c67f035a272c599bb89cfe803c1db6311e44bed3042fc25487
   languageName: node
   linkType: hard
 

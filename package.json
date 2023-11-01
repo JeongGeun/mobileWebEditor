@@ -13,6 +13,7 @@
     "@ant-design/cssinjs": "^1.16.1",
     "@ant-design/icons": "^5.2.5",
     "@aws-sdk/client-s3": "^3.433.0",
+    "@aws-sdk/region-config-resolver": "^3.433.0",
     "@tanstack/react-query": "^5.0.5",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
@@ -21,17 +22,22 @@
     "axios": "^1.5.1",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
+    "debug": "^4.3.4",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "follow-redirects": "^1.15.3",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-calendar": "^4.6.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.0",
+    "supports-color": "^9.4.0",
     "swiper": "^10.3.1",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/debug": "^4",
+    "@types/follow-redirects": "^1",
     "sass": "^1.65.1",
     "typescript-plugin-css-modules": "^5.0.1"
   }

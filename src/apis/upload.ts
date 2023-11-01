@@ -1,9 +1,8 @@
-import axios from "axios";
-import { URLS, resultify } from ".";
+import { URLS, resultify, axiosInstance } from ".";
 
 export const uploadFiles = async (formData: any) => {
-  return await resultify(
-    axios.post(URLS.UPLOAD, formData, {
+  return resultify(
+    axiosInstance.post(URLS.UPLOAD, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

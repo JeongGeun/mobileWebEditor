@@ -79,8 +79,8 @@ export default function Contact({ onSectionClick }: ContactProps) {
         </div>
       </section>
       <section className={styles.tel}>
-        {heroList.map(({ name, tel }) => (
-          <div className={styles.row} key={name}>
+        {heroList.map(({ name, tel }, index) => (
+          <div className={styles.row} key={index}>
             <div>
               <strong>{name}</strong>에게 연락하기
             </div>
@@ -104,11 +104,11 @@ export default function Contact({ onSectionClick }: ContactProps) {
       <section className={styles.parentTel}>
         <div className={styles.title}>혼주에게 연락하기</div>
         <div className={styles.parentTable}>
-          {heroParentList.map(({ name, parentInfo }) => (
-            <div className={styles.col} key={name}>
+          {heroParentList.map(({ name, parentInfo }, index) => (
+            <div className={styles.col} key={index}>
               <div className={styles.husbandText}>{name}측 혼주</div>
-              {parentInfo.map(({ type, name, tel }) => (
-                <div className={styles.telContent} key={name}>
+              {parentInfo.map(({ type, name, tel }, index) => (
+                <div className={styles.telContent} key={index}>
                   <div>
                     <span>{type}</span>
                     <strong className={styles.name}>
