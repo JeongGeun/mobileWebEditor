@@ -3,25 +3,27 @@ import styles from "./index.module.scss";
 import { UploadOutlined } from "@ant-design/icons";
 import type { UploadFile, UploadProps } from "antd";
 import { Button, Upload } from "antd";
-import { useState } from "react";
-import { File } from "buffer";
+import { useFieldArray } from "react-hook-form";
 
 export default function SliderInspector() {
-  const [fileList, setFileList] = useState<UploadFile<any>[]>([]);
+  const { fields: _fileList, append } = useFieldArray({ name: "block.fileList" });
+  const fileList = (_fileList as unknown as UploadFile<any>[]) || [];
   const { mutate: fileUpload } = useFileUploadMutation();
 
   const props: UploadProps = {
     fileList,
+    listType: "picture",
     customRequest({ file }) {
       const formData = new FormData();
       formData.append("file", file);
       fileUpload(formData, {
-        onSuccess: () => {
-          console.log("success");
+        onSuccess: ({ url }) => {
+          append({ uid: `${new Date().getTime()}`, name: url, thumbUrl: url });
         },
       });
     },
   };
+
   return (
     <div className={styles.layout}>
       <Upload {...props}>
