@@ -8,6 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import Providers from "./providers";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,9 +20,11 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
     <body className={inter.className} style={{ margin: 0 }}>
-      <StyledComponentsRegistry>
-        <AppLayout>{children}</AppLayout>
-      </StyledComponentsRegistry>
+      <Providers>
+        <StyledComponentsRegistry>
+          <AppLayout>{children}</AppLayout>
+        </StyledComponentsRegistry>
+      </Providers>
     </body>
   </html>
 );

@@ -2,8 +2,10 @@ import styles from "./index.module.scss";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Controller } from "swiper/modules";
+import { useFormContext } from "react-hook-form";
 import { useEffect, useState } from "react";
 import type SwiperCore from "swiper";
+import type { UploadFile } from "antd";
 import cs from "classnames/bind";
 
 const cx = cs.bind(styles);
@@ -14,6 +16,9 @@ interface SliderProps {
 }
 
 export default function Slider({ onSectionClick }: SliderProps) {
+  const { watch } = useFormContext();
+  const fileList = (watch("block.fileList") as UploadFile<any>[]) || [];
+
   const [firstControlledSwiper, setFirstControlledSwiper] =
     useState<SwiperCore>();
   const [secondControlledSwiper, setSecondControlledSwiper] =
@@ -38,14 +43,11 @@ export default function Slider({ onSectionClick }: SliderProps) {
               }}
               controller={{ control: secondControlledSwiper }}
             >
-              {mockArray.map((num) => (
-                <SwiperSlide key={num} className={styles.slide}>
+              {fileList.map(({ uid, name }, index) => (
+                <SwiperSlide key={uid} className={styles.slide}>
                   <Image
-                    src={`https://www.itscard.co.kr/mobile/new_m/mcard/images/common/gallery_sample_${num.padStart(
-                      2,
-                      "0"
-                    )}.jpg?v=0.0.1`}
-                    alt="청첩장 사진1"
+                    src={name}
+                    alt={`청첩장 사진${index}`}
                     width={230}
                     height={343}
                   />
@@ -78,19 +80,16 @@ export default function Slider({ onSectionClick }: SliderProps) {
               centeredSlidesBounds
               containerModifierClass="swiper-init"
             >
-              {mockArray.map((num, index) => (
-                <SwiperSlide key={`mini_${num}`} className={styles.slide}>
+              {fileList.map(({ uid, name }, index) => (
+                <SwiperSlide key={`mini_${uid}`} className={styles.slide}>
                   <div
                     className={cx({
                       blur: index !== activeIndex,
                     })}
                   >
                     <Image
-                      src={`https://www.itscard.co.kr/mobile/new_m/mcard/images/common/gallery_sample_${num.padStart(
-                        2,
-                        "0"
-                      )}.jpg?v=0.0.1`}
-                      alt="청첩장 사진1"
+                      src={name}
+                      alt={`청첩장 사진${index}`}
                       width={64}
                       height={64}
                     />

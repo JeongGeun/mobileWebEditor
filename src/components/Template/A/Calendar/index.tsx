@@ -3,10 +3,13 @@ import { useFormContext } from "react-hook-form";
 import dayjs from "dayjs";
 import styles from "./index.module.scss";
 import { ENG_DAYS, ENG_MONTH } from "@/constant/date";
+import { useEffect, useState } from "react";
 
 const DynamicCalendar = dynamic(() => import("react-calendar"), { ssr: false });
 
 export default function Calendar() {
+  const [isClient, setIsClient] = useState(false);
+
   const { watch } = useFormContext();
   const formValueDate = watch("block.date");
   const value = formValueDate ? new Date(formValueDate) : new Date();
@@ -16,18 +19,24 @@ export default function Calendar() {
   const month = value.getMonth();
   const noonWord = hour / 12 >= 1 ? "pm" : "am";
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
+
   return (
     <section className={styles.layout}>
       <div className={styles.header}>
-        <span className={styles.month}>
+        <div className={styles.month}>
           <strong>{month + 1}</strong> {ENG_MONTH[month]}
-        </span>
-        <span className={styles.day}>
+        </div>
+        <div className={styles.day}>
           <span>{day}.</span>
           <span>
             {noonWord} {hour === 12 ? 12 : hour % 12}:{min}
           </span>
-        </span>
+        </div>
       </div>
       <DynamicCalendar
         className={styles.calendar}

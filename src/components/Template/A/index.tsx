@@ -18,7 +18,7 @@ export default function TemplateA() {
       <Message onSectionClick={() => onSectionClick(1)} />
       <Contact onSectionClick={() => onSectionClick(2)} />
       <Calendar />
-      <Slider onSectionClick={() => onSectionClick(4)} />
+      <Slider onSectionClick={() => onSectionClick(3)} />
     </>
   );
 }
