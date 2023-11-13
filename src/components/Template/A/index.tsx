@@ -4,6 +4,7 @@ import Message from "./Message";
 import Contact from "./Contact";
 import Calendar from "./Calendar";
 import Slider from "./Slider";
+import WeddingMap from "./Map";
 
 export default function TemplateA() {
   const { setValue } = useFormContext();
@@ -19,6 +20,7 @@ export default function TemplateA() {
       <Contact onSectionClick={() => onSectionClick(2)} />
       <Calendar />
       <Slider onSectionClick={() => onSectionClick(3)} />
+      <WeddingMap />
     </>
   );
 }
