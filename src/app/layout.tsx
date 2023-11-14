@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import React from "react";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
@@ -20,10 +21,12 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
-    <Script
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578"
-      strategy="afterInteractive"
-    />
+    <head>
+      <Script
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false"
+        strategy="beforeInteractive"
+      />
+    </head>
     <body className={inter.className} style={{ margin: 0 }}>
       <Providers>
         <StyledComponentsRegistry>
