@@ -6,6 +6,7 @@ import { useEffect } from "react";
 export default function WeddingMap() {
   // https://postcode.map.daum.net/guide
   // https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord
+  // https://postcode.map.daum.net/guide
   useEffect(() => {
     window.kakao.maps.load(() => {
       const mapDiv = document.querySelector("#map");
@@ -44,7 +45,25 @@ export default function WeddingMap() {
         </div>
         <Button type="primary" shape="circle" icon={<PhoneFilled />} />
       </div>
-      <div id="map" className={styles.map} />
+      <div id="map" className={styles.map}></div>
+      <div className={styles.info}>
+        <div className={styles.contain}>
+          <dl>
+            <dt>지하철 안내</dt>
+            <dd>7호선 학동역 8번출구 도보 10분 거리</dd>
+          </dl>
+          <dl>
+            <dt>버스안내</dt>
+            <dd>간선버스 : 47, 240, 463</dd>
+            <dd>지선버스 : 4211</dd>
+            <dd>마을버스 : 강남08</dd>
+          </dl>
+          <dl>
+            <dt>주차안내</dt>
+            <dd>웨딩홀 전방 우측 150m 사이 공용주차장 이용</dd>
+          </dl>
+        </div>
+      </div>
     </div>
   );
 }
