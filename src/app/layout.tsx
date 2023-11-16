@@ -23,7 +23,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
     <head>
       <Script
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false&libraries=services"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
         strategy="beforeInteractive"
       />
     </head>

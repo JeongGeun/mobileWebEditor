@@ -3,10 +3,13 @@ import styles from "./index.module.scss";
 import { Button } from "antd";
 import { useEffect } from "react";
 
-export default function WeddingMap() {
+interface WedddingMapProps {
+  onSectionClick: VoidFunction;
+}
+
+export default function WeddingMap({ onSectionClick }: WedddingMapProps) {
   // https://postcode.map.daum.net/guide
   // https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord
-  // https://postcode.map.daum.net/guide
   useEffect(() => {
     window.kakao.maps.load(() => {
       const mapDiv = document.querySelector("#map");
@@ -32,7 +35,7 @@ export default function WeddingMap() {
     });
   }, []);
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>오시는길</div>
 
       <div className={styles.container}>

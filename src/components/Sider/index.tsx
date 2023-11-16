@@ -1,5 +1,6 @@
 import ContactInspector from "../Inspector/Contact";
 import CoverInspector from "../Inspector/Cover";
+import MapInspector from "../Inspector/Map";
 import MessageInspector from "../Inspector/Message";
 import SliderInspector from "../Inspector/Slider";
 import styles from "./index.module.scss";
@@ -17,6 +18,7 @@ export default function Sider() {
           {inspectorNumber === 1 && <MessageInspector />}
           {inspectorNumber === 2 && <ContactInspector />}
           {inspectorNumber === 3 && <SliderInspector />}
+          {inspectorNumber === 4 && <MapInspector />}
         </>
       )}
     </div>

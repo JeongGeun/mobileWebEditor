@@ -20,7 +20,7 @@ export default function TemplateA() {
       <Contact onSectionClick={() => onSectionClick(2)} />
       <Calendar />
       <Slider onSectionClick={() => onSectionClick(3)} />
-      <WeddingMap />
+      <WeddingMap onSectionClick={() => onSectionClick(4)} />
     </>
   );
 }
