@@ -51,7 +51,8 @@ export default function Cover({ onSectionClick }: CoverProps) {
       </div>
       <div className={styles.content}>
         {DAYS[day]}요일 오후 {hour}시 {min}분
-        <br /> {watch("block.place")}
+        <br /> {watch("block.addressDetail")}
+        <br /> ({watch("block.address")})
       </div>
     </div>
   );

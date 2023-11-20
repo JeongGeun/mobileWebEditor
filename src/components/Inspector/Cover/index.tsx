@@ -1,36 +1,17 @@
 import { Button, DatePicker, DatePickerProps, Input } from "antd";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import styles from "./index.module.scss";
 import { useEffect, useRef } from "react";
 
 export default function CoverInspector() {
   const map = useRef<any>();
   const marker = useRef<any>();
+  const { setValue } = useFormContext();
 
+  // https://postcode.map.daum.net/guide
+  // https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord
   useEffect(() => {
-    window.kakao.maps.load(() => {
-      console.log(1234);
-      const mapDiv = document.querySelector("#map");
-      const mapOption = {
-        center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3, // 지도의 확대 레벨
-      };
-
-      map.current = new window.kakao.maps.Map(mapDiv, mapOption);
-
-      const markerPosition = new window.kakao.maps.LatLng(
-        33.450701,
-        126.570667
-      );
-
-      // 마커를 생성합니다
-      marker.current = new window.kakao.maps.Marker({
-        position: markerPosition,
-      });
-
-      // 마커가 지도 위에 표시되도록 설정합니다
-      marker.current?.setMap(map.current);
-    });
+    window.kakao.maps.load(() => {});
   }, []);
 
   const postAddressCode = () => {
@@ -38,28 +19,35 @@ export default function CoverInspector() {
 
     new window.daum.Postcode({
       oncomplete: function (data: any) {
-        const addr = data.address; // 최종 주소 변수
-        const addressInput = document.getElementById(
-          "address"
-        ) as HTMLInputElement;
+        const mapDiv = document.querySelector("#map");
         // 주소 정보를 해당 필드에 넣는다.
-        addressInput.value = addr;
+        setValue("block.address", data.address);
         // 주소로 상세 정보를 검색
         geocoder.addressSearch(
           data.address,
           function (results: any, status: any) {
             // 정상적으로 검색이 완료됐으면
             if (status === window.daum.maps.services.Status.OK) {
-              var result = results[0]; //첫번째 결과의 값을 활용
+              const result = results[0]; //첫번째 결과의 값을 활용
 
               // 해당 주소에 대한 좌표를 받아서
-              var coords = new window.daum.maps.LatLng(result.y, result.x);
+              const mapOption = {
+                center: new window.kakao.maps.LatLng(result.y, result.x), // 지도의 중심좌표
+                level: 3, // 지도의 확대 레벨
+              };
+              map.current = new window.kakao.maps.Map(mapDiv, mapOption);
+              const markerPosition = new window.kakao.maps.LatLng(
+                result.y,
+                result.x
+              );
 
-              map.current?.relayout();
-              // 지도 중심을 변경한다.
-              map.current?.setCenter(coords);
-              // 마커를 결과값으로 받은 위치로 옮긴다.
-              marker.current?.setPosition(coords);
+              // 마커를 생성합니다
+              marker.current = new window.kakao.maps.Marker({
+                position: markerPosition,
+              });
+
+              // 마커가 지도 위에 표시되도록 설정합니다
+              marker.current?.setMap(map.current);
             }
           }
         );
@@ -88,23 +76,26 @@ export default function CoverInspector() {
         )}
       />
       <Controller
-        name="block.place"
+        name="block.address"
         render={({ field }) => (
           <div className={styles.container}>
-            <label>장소</label>
-            <Input.TextArea
+            <label>식장 도로명 주소</label>
+            <Input.Search
               id="address"
               {...field}
-              autoSize={{ minRows: 4 }}
+              onClick={postAddressCode}
+              onSearch={postAddressCode}
               readOnly
             />
-            <Button
-              className={styles.place_btn}
-              type="primary"
-              onClick={postAddressCode}
-            >
-              주소 검색
-            </Button>
+          </div>
+        )}
+      />
+      <Controller
+        name="block.addressDetail"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>식장 상세 주소</label>
+            <Input {...field} />
           </div>
         )}
       />
