@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import React from "react";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
@@ -9,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import Providers from "./providers";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +21,16 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
+    <head>
+      <Script
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false&libraries=services"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+        strategy="beforeInteractive"
+      />
+    </head>
     <body className={inter.className} style={{ margin: 0 }}>
       <Providers>
         <StyledComponentsRegistry>

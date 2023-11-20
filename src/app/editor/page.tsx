@@ -21,7 +21,7 @@ export default function Editor() {
       <form>
         <Layout style={{ height: "100%" }} hasSider>
           <Layout.Content>
-            <Toolbar setTemplateType={setTemplateType} />
+            {/* <Toolbar setTemplateType={setTemplateType} /> */}
             <Renderer />
           </Layout.Content>
           <Layout.Sider width={350} style={{ background: "white" }}>
