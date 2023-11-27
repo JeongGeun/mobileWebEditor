@@ -1,3 +1,5 @@
+import { URLS, axiosInstance, resultify } from ".";
+
 export type TemplateType = "A" | "B" | "C" | "D";
 
 export interface Block {
@@ -25,3 +27,13 @@ export interface FormListType {
   inspectorNumber: number;
   block: Block;
 }
+
+export interface InvitationList {
+  title: string;
+  date: string;
+  createdBy: string;
+}
+
+export const getInvitationList = () => {
+  return resultify<InvitationList>(axiosInstance.get(URLS.INVITATION_LIST));
+};

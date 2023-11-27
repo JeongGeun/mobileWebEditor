@@ -2,6 +2,8 @@
 
 import { Button, Typography, Table } from "antd";
 import styles from "./page.module.scss";
+import { useEffect } from "react";
+import { getInvitationList } from "@/apis/list";
 
 const dataSource = [
   {
@@ -32,18 +34,32 @@ const columns = [
   {
     title: "등록한 사람",
     dataIndex: "createdBy",
-    key:"createdBy"
-  }
+    key: "createdBy",
+  },
 ];
 
 const App = () => {
+  useEffect(() => {
+    async function getList() {
+      const result = await getInvitationList();
+      console.log(result);
+      return result;
+    }
+
+    getList();
+  }, []);
+
   return (
     <>
       <div className={styles.header}>
         <Typography.Title>모청 리스트</Typography.Title>
         <Button type="primary">등록하기</Button>
       </div>
-      <Table className={styles.table} dataSource={dataSource} columns={columns} />
+      <Table
+        className={styles.table}
+        dataSource={dataSource}
+        columns={columns}
+      />
     </>
   );
 };
