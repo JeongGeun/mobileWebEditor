@@ -1,7 +1,7 @@
 import type { AxiosResponse } from "axios";
 import axios from "axios";
 
-export const axiosInstance = axios.create({ timeout: 10000 });
+export const axiosInstance = axios.create({ timeout: 5000 });
 
 export const resultify = async <T,>(result: Promise<AxiosResponse<T>>) => {
   try {
@@ -14,5 +14,5 @@ export const resultify = async <T,>(result: Promise<AxiosResponse<T>>) => {
 };
 
 export const URLS = {
-  UPLOAD: "/s3-upload",
+  INVITATION_LIST: "/list",
 };
