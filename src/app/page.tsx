@@ -8,7 +8,7 @@ import { getInvitationList } from "@/apis/list";
 const dataSource = [
   {
     key: "1",
-    id: "1",
+    _id: "1",
     title: "동우&채련의 청첩장",
     date: "2023-05-08",
     createdBy: "손동우",
@@ -18,8 +18,8 @@ const dataSource = [
 const columns = [
   {
     title: "id",
-    dataIndex: "id",
-    key: "id",
+    dataIndex: "_id",
+    key: "_id",
   },
   {
     title: "청첩장 제목",

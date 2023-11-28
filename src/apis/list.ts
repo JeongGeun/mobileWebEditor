@@ -29,6 +29,7 @@ export interface FormListType {
 }
 
 export interface InvitationList {
+  _id: string;
   title: string;
   date: string;
   createdBy: string;
