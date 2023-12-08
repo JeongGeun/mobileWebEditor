@@ -7,5 +7,5 @@ export async function GET() {
   const invitationCollection = db.collection("invitation");
 
   const result = await invitationCollection.find().toArray();
-  return (Response as any).json({ result });
+  return (Response as any).json(result);
 }
