@@ -20,7 +20,6 @@
     "@types/react-dom": "18.2.7",
     "antd": "^5.8.0",
     "aws-crt": "^1.19.0",
-    "axios": "^1.5.1",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
     "debug": "^4.3.4",
