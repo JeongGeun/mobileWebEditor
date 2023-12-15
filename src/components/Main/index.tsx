@@ -4,6 +4,7 @@ import { Button, Typography, Table } from "antd";
 import styles from "./page.module.scss";
 import { useGetListQuery } from "@/query/useGetListQuery";
 import { InvitationList } from "@/apis/list";
+import { useRouter } from "next/navigation";
 
 const columns = [
   {
@@ -12,7 +13,7 @@ const columns = [
     key: "_id",
   },
   {
-    title: "청첩장 제목",
+    title: "신랑 및 신부 정보",
     dataIndex: "title",
     key: "title",
   },
@@ -34,12 +35,21 @@ const Main = (props: { initialData?: InvitationList[] }) => {
   const { data } = useGetListQuery({
     initialData: props.initialData,
   });
+  const router = useRouter();
 
   return (
     <>
       <div className={styles.header}>
         <Typography.Title>모청 리스트</Typography.Title>
-        <Button type="primary">등록하기</Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            router.push("/editor");
+          }}
+          role="button"
+        >
+          등록하기
+        </Button>
       </div>
       <Table className={styles.table} dataSource={data!} columns={columns} />
     </>
