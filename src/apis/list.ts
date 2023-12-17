@@ -26,6 +26,7 @@ export interface FormListType {
   type: TemplateType;
   inspectorNumber: number;
   block: Block;
+  date: string;
 }
 
 export interface InvitationList {

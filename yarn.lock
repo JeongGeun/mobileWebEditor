@@ -2670,6 +2670,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.30.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
+  languageName: node
+  linkType: hard
+
 "dayjs@npm:^1.11.1":
   version: 1.11.9
   resolution: "dayjs@npm:1.11.9"
@@ -4772,6 +4781,7 @@ __metadata:
     antd: ^5.8.0
     aws-crt: ^1.19.0
     classnames: ^2.3.2
+    date-fns: ^2.30.0
     dayjs: ^1.11.10
     debug: ^4.3.4
     eslint: 8.45.0
@@ -4779,7 +4789,6 @@ __metadata:
     follow-redirects: ^1.15.3
     mongodb: ^6.3.0
     next: 13.4.12
-    object-to-formdata: ^4.5.1
     react: 18.2.0
     react-calendar: ^4.6.0
     react-dom: 18.2.0
@@ -4984,13 +4993,6 @@ __metadata:
   version: 1.1.1
   resolution: "object-keys@npm:1.1.1"
   checksum: b363c5e7644b1e1b04aa507e88dcb8e3a2f52b6ffd0ea801e4c7a62d5aa559affe21c55a07fd4b1fd55fc03a33c610d73426664b20032405d7b92a1414c34d6a
-  languageName: node
-  linkType: hard
-
-"object-to-formdata@npm:^4.5.1":
-  version: 4.5.1
-  resolution: "object-to-formdata@npm:4.5.1"
-  checksum: 506b228bf48e38212989785db5f18885123455f1b75c6469d5ae2757ae3cfcce65e422cfecd5a386c9a2707607cb0124542e593b2190d541a59165bd55824853
   languageName: node
   linkType: hard
 

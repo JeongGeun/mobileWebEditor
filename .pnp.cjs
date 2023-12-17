@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["antd", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.8.0"],\
             ["aws-crt", "npm:1.19.0"],\
             ["classnames", "npm:2.3.2"],\
+            ["date-fns", "npm:2.30.0"],\
             ["dayjs", "npm:1.11.10"],\
             ["debug", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:4.3.4"],\
             ["eslint", "npm:8.45.0"],\
@@ -48,7 +49,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["follow-redirects", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:1.15.3"],\
             ["mongodb", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:6.3.0"],\
             ["next", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:13.4.12"],\
-            ["object-to-formdata", "npm:4.5.1"],\
             ["react", "npm:18.2.0"],\
             ["react-calendar", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:4.6.0"],\
             ["react-dom", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:18.2.0"],\
@@ -3242,6 +3242,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["date-fns", [\
+        ["npm:2.30.0", {\
+          "packageLocation": "./.yarn/cache/date-fns-npm-2.30.0-895c790e0f-f7be015232.zip/node_modules/date-fns/",\
+          "packageDependencies": [\
+            ["date-fns", "npm:2.30.0"],\
+            ["@babel/runtime", "npm:7.22.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["dayjs", [\
         ["npm:1.11.10", {\
           "packageLocation": "./.yarn/cache/dayjs-npm-1.11.10-2b4382efc1-a6b5a3813b.zip/node_modules/dayjs/",\
@@ -5757,6 +5767,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["antd", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.8.0"],\
             ["aws-crt", "npm:1.19.0"],\
             ["classnames", "npm:2.3.2"],\
+            ["date-fns", "npm:2.30.0"],\
             ["dayjs", "npm:1.11.10"],\
             ["debug", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:4.3.4"],\
             ["eslint", "npm:8.45.0"],\
@@ -5764,7 +5775,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["follow-redirects", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:1.15.3"],\
             ["mongodb", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:6.3.0"],\
             ["next", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:13.4.12"],\
-            ["object-to-formdata", "npm:4.5.1"],\
             ["react", "npm:18.2.0"],\
             ["react-calendar", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:4.6.0"],\
             ["react-dom", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:18.2.0"],\
@@ -5976,15 +5986,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/object-keys-npm-1.1.1-1bf2f1be93-b363c5e764.zip/node_modules/object-keys/",\
           "packageDependencies": [\
             ["object-keys", "npm:1.1.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["object-to-formdata", [\
-        ["npm:4.5.1", {\
-          "packageLocation": "./.yarn/cache/object-to-formdata-npm-4.5.1-dfa68cf863-506b228bf4.zip/node_modules/object-to-formdata/",\
-          "packageDependencies": [\
-            ["object-to-formdata", "npm:4.5.1"]\
           ],\
           "linkType": "HARD"\
         }]\
