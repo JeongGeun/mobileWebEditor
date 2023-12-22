@@ -29,12 +29,10 @@ const columns = [
   },
 ];
 
-const Main = (props: { initialData?: InvitationList[] }) => {
+const Main = () => {
   // v5에서 부터는 isLoading -> isPending으로 변경(데이터가 없는 상태를 의미)
   // V4 isInitialLoading은 데이터가 있지만 fetch되지는 않은 상태 v5에서는 isLoading으로 변경됨
-  const { data } = useGetListQuery({
-    initialData: props.initialData,
-  });
+  const { data } = useGetListQuery();
   const router = useRouter();
 
   return (
@@ -51,7 +49,7 @@ const Main = (props: { initialData?: InvitationList[] }) => {
           등록하기
         </Button>
       </div>
-      <Table className={styles.table} dataSource={data!} columns={columns} />
+      <Table className={styles.table} dataSource={data} columns={columns} />
     </>
   );
 };
