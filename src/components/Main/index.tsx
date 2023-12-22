@@ -35,6 +35,8 @@ const Main = () => {
   const { data } = useGetListQuery();
   const router = useRouter();
 
+  // if (!data) return null;
+
   return (
     <>
       <div className={styles.header}>
