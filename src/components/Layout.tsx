@@ -9,7 +9,7 @@ import styles from "./layout.module.scss";
 import { FormListType } from "@/apis/list";
 import { usePathname } from "next/navigation";
 import { useInvitationMutation } from "@/query/useInvitationMutation";
-import { getKorTime } from "@/util/timezone";
+
 
 const { Header, Content, Sider } = Layout;
 
@@ -39,9 +39,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const { mutate } = useInvitationMutation();
-  
+
   const onCreateInvitation = (data: FormListType) => {
-    mutate(JSON.stringify({ ...data, date: getKorTime() }), {
+    mutate(JSON.stringify(data), {
       onSuccess: () => {
         console.log("success");
       },
