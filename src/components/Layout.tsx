@@ -9,7 +9,7 @@ import styles from "./layout.module.scss";
 import { FormListType } from "@/apis/list";
 import { usePathname } from "next/navigation";
 import { useInvitationMutation } from "@/query/useInvitationMutation";
-
+import { useRouter } from "next/navigation";
 
 const { Header, Content, Sider } = Layout;
 
@@ -37,13 +37,14 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   });
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const router = useRouter();
 
-  const { mutate } = useInvitationMutation();
+  const { mutate, isPending } = useInvitationMutation();
 
   const onCreateInvitation = (data: FormListType) => {
     mutate(JSON.stringify(data), {
       onSuccess: () => {
-        console.log("success");
+        router.push("/");
       },
     });
   };
@@ -55,6 +56,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           <div className={styles.logo}>모청 메이커</div>
           {pathname === "/editor" && (
             <Button
+              loading={isPending}
               type="primary"
               onClick={methods.handleSubmit(onCreateInvitation)}
             >
