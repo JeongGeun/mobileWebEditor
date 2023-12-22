@@ -35,7 +35,7 @@ const Main = () => {
   const { data } = useGetListQuery();
   const router = useRouter();
 
-  // if (!data) return null;
+  if (!data) return null;
 
   return (
     <>

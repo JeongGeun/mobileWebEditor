@@ -8,15 +8,16 @@ import {
 } from "@tanstack/react-query";
 
 const App = async () => {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: [GET_LIST_QUERY_KEY],
-    queryFn: getInvitationList,
-  });
+  // const queryClient = new QueryClient();
+  // await queryClient.prefetchQuery({
+  //   queryKey: [GET_LIST_QUERY_KEY],
+  //   queryFn: getInvitationList,
+  // });
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <Main />
-    </HydrationBoundary>
+    // <HydrationBoundary state={dehydrate(queryClient)}>
+    //   <Main />
+    // </HydrationBoundary>
+    <Main />
   );
 };
 
