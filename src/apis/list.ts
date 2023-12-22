@@ -1,4 +1,4 @@
-import { URLS, axiosInstance, resultify } from ".";
+import { URLS, resultify } from ".";
 
 export type TemplateType = "A" | "B" | "C" | "D";
 
@@ -36,5 +36,11 @@ export interface InvitationList {
 }
 
 export const getInvitationList = () => {
-  return resultify<InvitationList>(axiosInstance.get(URLS.INVITATION_LIST));
+  return resultify(
+    fetch(URLS.INVITATION_LIST, { method: "GET", next: { revalidate: 10 } })
+  );
+};
+
+export const postInvitation = (body: any) => {
+  return resultify(fetch(URLS.CREATE_INVI, { method: "POST", body }));
 };
