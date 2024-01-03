@@ -1,10 +1,5 @@
 .layout {
-  cursor: pointer;
   height: auto;
-
-  &:hover {
-    border: 3px dashed black;
-  }
 
   .image {
     display: block;
