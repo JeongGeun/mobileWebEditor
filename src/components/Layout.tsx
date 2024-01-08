@@ -12,7 +12,6 @@ const { Header, Content, Sider } = Layout;
 interface AppLayoutProps {
   children: React.ReactNode;
   buttonComponent?: React.ReactNode;
-  isEditorPage?: boolean;
 }
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -36,12 +35,10 @@ const items: MenuItem[] = [getItem("모바일 청첩창", "1", <PieChartOutlined
 const AppLayout = ({
   children,
   buttonComponent,
-  isEditorPage,
 }: AppLayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
 
-  if (isEditorPage) return <>{children}</>;
 
   return (
     <Layout>
@@ -49,7 +46,7 @@ const AppLayout = ({
         <div
           className={styles.logo}
           onClick={() => {
-            router.push("/");
+            router.push("/main");
           }}
         >
           모청 메이커

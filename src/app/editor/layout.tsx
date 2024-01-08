@@ -37,7 +37,7 @@ export default function EditorLayout({
   );
 
   return (
-    <AppLayout buttonComponent={buttonComponent} isEditorPage>
+    <AppLayout buttonComponent={buttonComponent}>
       <FormProvider {...methods}>{children}</FormProvider>
     </AppLayout>
   );
