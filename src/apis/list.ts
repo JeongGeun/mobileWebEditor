@@ -41,6 +41,15 @@ export const getInvitationList = () => {
   );
 };
 
+export const getInvitatationInfo = (id: string) => {
+  return resultify(
+    fetch(`${URLS.INVITATION_LIST}/${id}`, {
+      method: "GET",
+      next: { revalidate: 10 },
+    })
+  );
+};
+
 export const postInvitation = (body: any) => {
   return resultify(fetch(URLS.CREATE_INVI, { method: "POST", body }));
 };
