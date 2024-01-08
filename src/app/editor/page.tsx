@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useForm, useFormContext } from "react-hook-form";
 
 export default function Editor() {
-  const { watch, reset } = useFormContext();
+  const { reset } = useFormContext();
   const params = useSearchParams();
   const id = params.get("id") as string;
   const { data } = useGetInviInfoQuery(id, { enabled: !!id });

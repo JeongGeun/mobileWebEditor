@@ -3,15 +3,17 @@
 import React, { useState } from "react";
 import { PieChartOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Button, Layout, Menu, theme } from "antd";
-import { FormProvider, useForm } from "react-hook-form";
+import { Layout, Menu } from "antd";
 import styles from "./layout.module.scss";
-import { FormListType } from "@/apis/list";
-import { usePathname } from "next/navigation";
-import { useInvitationMutation } from "@/query/useInvitationMutation";
 import { useRouter } from "next/navigation";
 
 const { Header, Content, Sider } = Layout;
+
+interface AppLayoutProps {
+  children: React.ReactNode;
+  buttonComponent?: React.ReactNode;
+  isEditorPage?: boolean;
+}
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -31,58 +33,47 @@ function getItem(
 
 const items: MenuItem[] = [getItem("모바일 청첩창", "1", <PieChartOutlined />)];
 
-const AppLayout = ({ children }: { children: React.ReactNode }) => {
-  const methods = useForm<FormListType>({
-    defaultValues: { type: "A", inspectorNumber: 0 },
-  });
-  const pathname = usePathname();
+const AppLayout = ({
+  children,
+  buttonComponent,
+  isEditorPage,
+}: AppLayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const router = useRouter();
 
-  const { mutate, isPending } = useInvitationMutation();
-
-  const onCreateInvitation = (data: FormListType) => {
-    mutate(JSON.stringify(data), {
-      onSuccess: () => {
-        router.push("/");
-      },
-    });
-  };
+  if (isEditorPage) return <>{children}</>;
 
   return (
-    <FormProvider {...methods}>
-      <Layout>
-        <Header className={styles.header}>
-          <div className={styles.logo}>모청 메이커</div>
-          {pathname === "/editor" && (
-            <Button
-              loading={isPending}
-              type="primary"
-              onClick={methods.handleSubmit(onCreateInvitation)}
-            >
-              청첩장 등록
-            </Button>
-          )}
-        </Header>
-        <Layout className={styles.layout} hasSider>
-          <Sider
-            collapsible
-            collapsed={collapsed}
-            onCollapse={(value) => setCollapsed(value)}
-          >
-            <Menu
-              theme="dark"
-              defaultSelectedKeys={["1"]}
-              mode="inline"
-              items={items}
-            />
-          </Sider>
-          <Layout>
-            <Content>{children}</Content>
-          </Layout>
+    <Layout>
+      <Header className={styles.header}>
+        <div
+          className={styles.logo}
+          onClick={() => {
+            router.push("/");
+          }}
+        >
+          모청 메이커
+        </div>
+        {buttonComponent || null}
+      </Header>
+      <Layout className={styles.layout} hasSider>
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
+        >
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={["1"]}
+            mode="inline"
+            items={items}
+          />
+        </Sider>
+        <Layout>
+          <Content>{children}</Content>
         </Layout>
       </Layout>
-    </FormProvider>
+    </Layout>
   );
 };
 
