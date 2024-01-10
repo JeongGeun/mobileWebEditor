@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { DAYS } from "@/constant/date";
 
 interface CoverProps {
-  onSectionClick: VoidFunction;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
 export default function Cover({ onSectionClick }: CoverProps) {
@@ -36,7 +36,7 @@ export default function Cover({ onSectionClick }: CoverProps) {
   const { month, date, hour, min, day } = getDate;
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="0" className={styles.layout} onClick={onSectionClick}>
       <p className={styles.date}>
         {month}월{date}일
       </p>

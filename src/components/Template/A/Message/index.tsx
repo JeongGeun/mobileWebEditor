@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import { DEFAULT_NAME } from "@/constant/default";
 
 interface MessageProps {
-  onSectionClick: VoidFunction;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
 export default function Message({ onSectionClick }: MessageProps) {
@@ -33,7 +33,7 @@ export default function Message({ onSectionClick }: MessageProps) {
   ]);
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="1" className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>{title || "제목은 여기에"}</div>
       <div className={styles.content}>{content || "문구는 여기에"}</div>
       <div className={styles.info}>

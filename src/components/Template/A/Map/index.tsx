@@ -4,7 +4,7 @@ import { Button } from "antd";
 import { useFormContext } from "react-hook-form";
 
 interface WedddingMapProps {
-  onSectionClick: VoidFunction;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
 export default function WeddingMap({ onSectionClick }: WedddingMapProps) {
@@ -13,7 +13,7 @@ export default function WeddingMap({ onSectionClick }: WedddingMapProps) {
   const addressDetail = watch("block.addressDetail");
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="4" className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>오시는길</div>
 
       <div className={styles.container}>

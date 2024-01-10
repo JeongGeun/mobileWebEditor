@@ -12,7 +12,7 @@ const cx = cs.bind(styles);
 const mockArray = Array.from({ length: 12 }, (_, i) => String(i + 1));
 
 interface SliderProps {
-  onSectionClick: VoidFunction;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
 export default function Slider({ onSectionClick }: SliderProps) {
@@ -26,7 +26,7 @@ export default function Slider({ onSectionClick }: SliderProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="3" className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>갤러리</div>
       <div className={styles.container}>
         <div className={styles.outer}>

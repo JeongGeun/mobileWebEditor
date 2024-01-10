@@ -5,7 +5,7 @@ import { useFormContext } from "react-hook-form";
 import { DEFAULT_NAME } from "@/constant/default";
 
 interface ContactProps {
-  onSectionClick: VoidFunction;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
 export default function Contact({ onSectionClick }: ContactProps) {
@@ -63,7 +63,7 @@ export default function Contact({ onSectionClick }: ContactProps) {
   };
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="2" className={styles.layout} onClick={onSectionClick}>
       <section
         className={styles.image}
         style={{
