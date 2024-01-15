@@ -18,12 +18,20 @@ export default function Renderer({
   onSectionClick,
 }: RendererProps) {
   if (isMobile) {
-    return <>{data?.type === "A" && <TemplateA />}</>;
+    return (
+      <>
+        {data?.type === "A" && (
+          <TemplateA data={data} onSectionClick={onSectionClick} />
+        )}
+      </>
+    );
   }
 
   return (
     <div className={styles.container} style={{ width }}>
-      {data?.type === "A" && <TemplateA onSectionClick={onSectionClick} />}
+      {data?.type === "A" && (
+        <TemplateA data={data} onSectionClick={onSectionClick} />
+      )}
     </div>
   );
 }

@@ -1,16 +1,20 @@
 import Image from "next/image";
 import styles from "./index.module.scss";
-import { useFormContext } from "react-hook-form";
 import { useMemo } from "react";
 import { DAYS } from "@/constant/date";
+import { FormListType } from "@/apis/list";
 
 interface CoverProps {
+  data?: FormListType;
   onSectionClick?: (event: React.MouseEvent) => void;
 }
 
-export default function Cover({ onSectionClick }: CoverProps) {
-  const { watch } = useFormContext();
-  const dates = watch("block.date") as string;
+export default function Cover({ data, onSectionClick }: CoverProps) {
+  const dates = data?.block?.date as string;
+  const husbandName = data?.block?.husbandName;
+  const wifeName = data?.block?.wifeName;
+  const address = data?.block?.address;
+  const addressDetail = data?.block?.addressDetail;
 
   const getDate = useMemo(() => {
     if (dates) {
@@ -47,12 +51,12 @@ export default function Cover({ onSectionClick }: CoverProps) {
         height={260}
       />
       <div className={styles.name}>
-        {watch("block.husbandName")} / {watch("block.wifeName")}
+        {husbandName} / {wifeName}
       </div>
       <div className={styles.content}>
         {DAYS[day]}요일 오후 {hour}시 {min}분
-        <br /> {watch("block.addressDetail")}
-        <br /> ({watch("block.address")})
+        <br /> {addressDetail}
+        <br /> ({address})
       </div>
     </div>
   );

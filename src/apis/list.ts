@@ -1,3 +1,4 @@
+import { UploadFile } from "antd";
 import { URLS, resultify } from ".";
 
 export type TemplateType = "A" | "B" | "C" | "D";
@@ -5,7 +6,8 @@ export type TemplateType = "A" | "B" | "C" | "D";
 export interface Block {
   husbandName: string;
   wifeName: string;
-  place: string;
+  address: string;
+  addressDetail: string;
   date: string;
   messageTitle: string;
   messageContent: string;
@@ -20,6 +22,9 @@ export interface Block {
   husbandMotherTel: string;
   wifeFatherTel: string;
   wifeMotherTel: string;
+  husbandOrder: string;
+  wifeOrder: string;
+  fileList: UploadFile<any>[];
 }
 
 export interface FormListType {
