@@ -3,7 +3,6 @@
 import { Button, Typography, Table } from "antd";
 import styles from "./page.module.scss";
 import { useGetListQuery } from "@/query/useGetListQuery";
-import { InvitationList } from "@/apis/list";
 import { useRouter } from "next/navigation";
 
 const columns = [
@@ -51,7 +50,20 @@ const Main = () => {
           등록하기
         </Button>
       </div>
-      <Table className={styles.table} dataSource={data} columns={columns} />
+      <Table
+        className={styles.table}
+        dataSource={data}
+        columns={columns}
+        onRow={(record) => {
+          return {
+            onClick: () => {
+              router.push(
+                `${process.env.NEXT_PUBLIC_BASE_API_URL}/editor?id=${record._id}`
+              );
+            },
+          };
+        }}
+      />
     </>
   );
 };

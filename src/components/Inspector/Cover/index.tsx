@@ -54,7 +54,6 @@ export default function CoverInspector() {
       },
     }).open();
   };
-
   return (
     <div className={styles["inspector-layout"]}>
       <Controller

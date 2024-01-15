@@ -34,7 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <body className={inter.className} style={{ margin: 0 }}>
       <Providers>
         <StyledComponentsRegistry>
-          <AppLayout>{children}</AppLayout>
+          {children}
         </StyledComponentsRegistry>
       </Providers>
     </body>
