@@ -4,14 +4,18 @@ import dayjs from "dayjs";
 import styles from "./index.module.scss";
 import { ENG_DAYS, ENG_MONTH } from "@/constant/date";
 import { useEffect, useState } from "react";
+import { FormListType } from "@/apis/list";
 
 const DynamicCalendar = dynamic(() => import("react-calendar"), { ssr: false });
 
-export default function Calendar() {
+interface CalendarProps {
+  data?: FormListType;
+}
+
+export default function Calendar({ data }: CalendarProps) {
   const [isClient, setIsClient] = useState(false);
 
-  const { watch } = useFormContext();
-  const formValueDate = watch("block.date");
+  const formValueDate = data?.block?.date || "";
   const value = formValueDate ? new Date(formValueDate) : new Date();
   const hour = value.getHours();
   const min = value.getMinutes();

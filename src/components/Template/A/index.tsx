@@ -5,22 +5,22 @@ import Contact from "./Contact";
 import Calendar from "./Calendar";
 import Slider from "./Slider";
 import WeddingMap from "./Map";
+import { FormListType } from "@/apis/list";
 
-export default function TemplateA() {
-  const { setValue } = useFormContext();
+interface TemplateAProps {
+  data?: FormListType;
+  onSectionClick?: (event: React.MouseEvent) => void;
+}
 
-  const onSectionClick = (section: number) => {
-    setValue("inspectorNumber", section);
-  };
-
+export default function TemplateA({ data, onSectionClick }: TemplateAProps) {
   return (
     <>
-      <Cover onSectionClick={() => onSectionClick(0)} />
-      <Message onSectionClick={() => onSectionClick(1)} />
-      <Contact onSectionClick={() => onSectionClick(2)} />
-      <Calendar />
-      <Slider onSectionClick={() => onSectionClick(3)} />
-      <WeddingMap onSectionClick={() => onSectionClick(4)} />
+      <Cover data={data} onSectionClick={onSectionClick} />
+      <Message data={data} onSectionClick={onSectionClick} />
+      <Contact data={data} onSectionClick={onSectionClick} />
+      <Calendar data={data} />
+      <Slider data={data} onSectionClick={onSectionClick} />
+      <WeddingMap data={data} onSectionClick={onSectionClick} />
     </>
   );
 }

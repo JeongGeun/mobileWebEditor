@@ -1,19 +1,19 @@
 import { PhoneFilled } from "@ant-design/icons";
 import styles from "./index.module.scss";
 import { Button } from "antd";
-import { useFormContext } from "react-hook-form";
+import { FormListType } from "@/apis/list";
 
 interface WedddingMapProps {
-  onSectionClick: VoidFunction;
+  data?: FormListType;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
-export default function WeddingMap({ onSectionClick }: WedddingMapProps) {
-  const { watch } = useFormContext();
-  const address = watch("block.address");
-  const addressDetail = watch("block.addressDetail");
+export default function WeddingMap({ data, onSectionClick }: WedddingMapProps) {
+  const address = data?.block?.address;
+  const addressDetail = data?.block?.addressDetail;
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="4" className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>오시는길</div>
 
       <div className={styles.container}>

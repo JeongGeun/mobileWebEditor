@@ -1,4 +1,5 @@
 import {
+  FormListType,
   InvitationList,
   getInvitatationInfo,
   getInvitationList,
@@ -9,12 +10,9 @@ export const GET_INVI_INFO_QUERY_KEY = "GET_INVI_INFO_QUERY_KEY";
 
 export const useGetInviInfoQuery = (
   id: string,
-  options?: Omit<
-    UseQueryOptions<InvitationList[], Error>,
-    "queryKey" | "queryFn"
-  >
+  options?: Omit<UseQueryOptions<FormListType, Error>, "queryKey" | "queryFn">
 ) => {
-  return useQuery<InvitationList[], Error, InvitationList[]>({
+  return useQuery<FormListType, Error, FormListType>({
     queryKey: [GET_INVI_INFO_QUERY_KEY, id],
     queryFn: () => getInvitatationInfo(id),
     ...options,

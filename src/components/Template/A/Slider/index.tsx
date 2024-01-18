@@ -2,22 +2,21 @@ import styles from "./index.module.scss";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Controller } from "swiper/modules";
-import { useFormContext } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type SwiperCore from "swiper";
 import type { UploadFile } from "antd";
 import cs from "classnames/bind";
+import { FormListType } from "@/apis/list";
 
 const cx = cs.bind(styles);
-const mockArray = Array.from({ length: 12 }, (_, i) => String(i + 1));
 
 interface SliderProps {
-  onSectionClick: VoidFunction;
+  data?: FormListType;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
-export default function Slider({ onSectionClick }: SliderProps) {
-  const { watch } = useFormContext();
-  const fileList = (watch("block.fileList") as UploadFile<any>[]) || [];
+export default function Slider({ data, onSectionClick }: SliderProps) {
+  const fileList = (data?.block?.fileList as UploadFile<any>[]) || [];
 
   const [firstControlledSwiper, setFirstControlledSwiper] =
     useState<SwiperCore>();
@@ -26,7 +25,7 @@ export default function Slider({ onSectionClick }: SliderProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="3" className={styles.layout} onClick={onSectionClick}>
       <div className={styles.title}>갤러리</div>
       <div className={styles.container}>
         <div className={styles.outer}>

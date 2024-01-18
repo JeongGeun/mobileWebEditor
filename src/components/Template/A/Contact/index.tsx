@@ -3,38 +3,26 @@ import styles from "./index.module.scss";
 import { PhoneFilled, MessageFilled } from "@ant-design/icons";
 import { useFormContext } from "react-hook-form";
 import { DEFAULT_NAME } from "@/constant/default";
+import { FormListType } from "@/apis/list";
 
 interface ContactProps {
-  onSectionClick: VoidFunction;
+  data?: FormListType;
+  onSectionClick?: (event: React.MouseEvent) => void;
 }
 
-export default function Contact({ onSectionClick }: ContactProps) {
-  const { watch } = useFormContext();
-  const [
-    invitationText,
-    husbandFatherName,
-    husbandMotherName,
-    wifeFatherName,
-    wifeMotherName,
-    husbandTel,
-    wifeTel,
-    husbandFatherTel,
-    husbandMotherTel,
-    wifeFatherTel,
-    wifeMotherTel,
-  ] = watch([
-    "block.invitationText",
-    "block.husbandFatherName",
-    "block.husbandMotherName",
-    "block.wifeFatherName",
-    "block.wifeMotherName",
-    "block.husbandTel",
-    "block.wifeTel",
-    "block.husbandFatherTel",
-    "block.husbandMotherTel",
-    "block.wifeFatherTel",
-    "block.wifeMotherTel",
-  ]);
+export default function Contact({ data, onSectionClick }: ContactProps) {
+  const block = data?.block;
+  const invitationText = block?.invitationText;
+  const husbandFatherName = block?.husbandFatherName;
+  const husbandMotherName = block?.husbandMotherName;
+  const wifeFatherName = block?.wifeFatherName;
+  const wifeMotherName = block?.wifeMotherName;
+  const husbandTel = block?.husbandTel || "";
+  const wifeTel = block?.wifeTel || "";
+  const husbandFatherTel = block?.husbandFatherTel;
+  const husbandMotherTel = block?.husbandMotherTel;
+  const wifeFatherTel = block?.wifeFatherTel;
+  const wifeMotherTel = block?.wifeMotherTel;
 
   const heroList = [
     { name: "신랑", tel: husbandTel },
@@ -63,7 +51,7 @@ export default function Contact({ onSectionClick }: ContactProps) {
   };
 
   return (
-    <div className={styles.layout} onClick={onSectionClick}>
+    <div id="2" className={styles.layout} onClick={onSectionClick}>
       <section
         className={styles.image}
         style={{
