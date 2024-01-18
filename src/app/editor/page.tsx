@@ -7,7 +7,7 @@ import { FormListType } from "@/apis/list";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useGetInviInfoQuery } from "@/query/useGetInviInfoQuery";
-import { useForm, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export default function Editor() {
   const [width, setWidth] = useState("375px");
