@@ -11,7 +11,7 @@ import { useFormContext } from "react-hook-form";
 
 export default function Editor() {
   const [width, setWidth] = useState("375px");
-  const { setValue } = useFormContext<FormListType>();
+  const { setValue, watch } = useFormContext<FormListType>();
 
   const onSectionClick = (event: React.MouseEvent) => {
     setValue("inspectorNumber", Number(event.currentTarget.id));
@@ -21,6 +21,7 @@ export default function Editor() {
   const params = useSearchParams();
   const id = params.get("id") as string;
   const { data } = useGetInviInfoQuery(id, { enabled: !!id });
+  const formData = watch();
 
   useEffect(() => {
     if (data) {
@@ -32,7 +33,11 @@ export default function Editor() {
     <Layout style={{ height: "100%" }} hasSider>
       <Layout.Content>
         {/* <Toolbar setTemplateType={setTemplateType} /> */}
-        <Renderer data={data} width={width} onSectionClick={onSectionClick} />
+        <Renderer
+          data={formData}
+          width={width}
+          onSectionClick={onSectionClick}
+        />
       </Layout.Content>
       <Layout.Sider width={350} style={{ background: "white" }}>
         <Sider />
