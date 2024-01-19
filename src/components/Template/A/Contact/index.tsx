@@ -19,10 +19,10 @@ export default function Contact({ data, onSectionClick }: ContactProps) {
   const wifeMotherName = block?.wifeMotherName;
   const husbandTel = block?.husbandTel || "";
   const wifeTel = block?.wifeTel || "";
-  const husbandFatherTel = block?.husbandFatherTel;
-  const husbandMotherTel = block?.husbandMotherTel;
-  const wifeFatherTel = block?.wifeFatherTel;
-  const wifeMotherTel = block?.wifeMotherTel;
+  const husbandFatherTel = block?.husbandFatherTel || "";
+  const husbandMotherTel = block?.husbandMotherTel || "";
+  const wifeFatherTel = block?.wifeFatherTel || "";
+  const wifeMotherTel = block?.wifeMotherTel || "";
 
   const heroList = [
     { name: "신랑", tel: husbandTel },
