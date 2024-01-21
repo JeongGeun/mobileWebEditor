@@ -5,7 +5,7 @@ import TemplateA from "../Template/A";
 import { FormListType } from "@/apis/list";
 
 interface RendererProps {
-  width: string;
+  width?: string;
   data?: FormListType;
   isMobile?: boolean;
   onSectionClick?: (event: React.MouseEvent) => void;
