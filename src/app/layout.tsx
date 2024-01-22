@@ -11,6 +11,20 @@ import "swiper/css/pagination";
 
 import Providers from "./providers";
 import Script from "next/script";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import localeData from "dayjs/plugin/localeData";
+import weekday from "dayjs/plugin/weekday";
+import weekOfYear from "dayjs/plugin/weekOfYear";
+import weekYear from "dayjs/plugin/weekYear";
+
+dayjs.extend(customParseFormat);
+dayjs.extend(advancedFormat);
+dayjs.extend(weekday);
+dayjs.extend(localeData);
+dayjs.extend(weekOfYear);
+dayjs.extend(weekYear);
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,9 +47,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     </head>
     <body className={inter.className} style={{ margin: 0 }}>
       <Providers>
-        <StyledComponentsRegistry>
-          {children}
-        </StyledComponentsRegistry>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </Providers>
     </body>
   </html>

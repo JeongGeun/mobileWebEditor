@@ -1,7 +1,8 @@
-import { Button, DatePicker, DatePickerProps, Input } from "antd";
+import { DatePicker, DatePickerProps, Input } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 import styles from "./index.module.scss";
 import { useEffect, useRef } from "react";
+import dayjs from "dayjs";
 
 export default function CoverInspector() {
   const map = useRef<any>();
@@ -101,6 +102,7 @@ export default function CoverInspector() {
       <Controller
         name="block.date"
         render={({ field }) => {
+          const value = field.value ? dayjs(field.value) : null;
           const { onChange } = field;
           const onOk = (value: DatePickerProps["value"]) => {
             if (value) {
@@ -111,6 +113,7 @@ export default function CoverInspector() {
             <div className={styles.container}>
               <label>시간</label>
               <DatePicker
+                value={value}
                 showTime={{ format: "HH:mm" }}
                 format="YYYY-MM-DD HH:mm"
                 onOk={onOk}
