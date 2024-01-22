@@ -1,4 +1,9 @@
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import {
+  DeleteObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from "@aws-sdk/client-s3";
+import { UploadFile } from "antd";
 
 const client = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_REGION,
@@ -27,5 +32,23 @@ export const getUploadedS3Url = async (file: File) => {
     return `${process.env.NEXT_PUBLIC_BASE_S3_URL}/${fileName}`;
   } catch (error) {
     console.log("실패", error);
+  }
+};
+
+export const deleteS3file = async (file: UploadFile<any>) => {
+  const fileName = file.name.replace(
+    `${process.env.NEXT_PUBLIC_BASE_S3_URL}/`,
+    ""
+  );
+  const command = new DeleteObjectCommand({
+    Bucket: process.env.NEXT_PUBLIC_BUCKET_NAME,
+    Key: fileName,
+  });
+
+  try {
+    const response = await client.send(command);
+    console.log(response);
+  } catch (err) {
+    console.error(err);
   }
 };
