@@ -25,7 +25,7 @@ export default function Editor() {
 
   useEffect(() => {
     if (data) {
-      reset(data);
+      reset({ ...data, inspectorNumber: 0 });
     }
   }, [reset, data]);
 
