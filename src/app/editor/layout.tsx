@@ -21,7 +21,7 @@ export default function EditorLayout({
   const onCreateInvitation = (data: FormListType) => {
     mutate(JSON.stringify(data), {
       onSuccess: () => {
-        router.push("/");
+        router.push("/main");
       },
     });
   };
