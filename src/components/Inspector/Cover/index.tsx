@@ -1,8 +1,18 @@
-import { DatePicker, DatePickerProps, Input } from "antd";
+import {
+  DatePicker,
+  DatePickerProps,
+  Input,
+  Button,
+  Upload,
+  UploadProps,
+  UploadFile,
+} from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 import styles from "./index.module.scss";
 import { useEffect, useRef } from "react";
 import dayjs from "dayjs";
+import { UploadOutlined } from "@ant-design/icons";
+import { deleteS3file, getUploadedS3Url } from "@/util/s3";
 
 export default function CoverInspector() {
   const map = useRef<any>();
@@ -74,6 +84,35 @@ export default function CoverInspector() {
             <Input {...field} />
           </div>
         )}
+      />
+      <Controller
+        name="block.representativeImage"
+        render={({ field }) => {
+          const { onChange } = field;
+          const props: UploadProps = {
+            fileList : field.value? [{ uid: '0',  name:field.value,thumbUrl:field.value}]:[],
+            maxCount: 1,
+            listType: "picture",
+            customRequest: async ({ file }) => {
+              const url = await getUploadedS3Url(file as File);
+              onChange(url);
+            },
+            onRemove: async (file: UploadFile<any>) => {
+              await deleteS3file(file);
+              onChange("");
+              window.alert("삭제되었습니다.");
+            },
+          };
+
+          return (
+            <div className={styles.container}>
+              <label>대표 이미지</label>
+              <Upload {...props}>
+                <Button icon={<UploadOutlined />}>Upload</Button>
+              </Upload>
+            </div>
+          );
+        }}
       />
       <Controller
         name="block.address"

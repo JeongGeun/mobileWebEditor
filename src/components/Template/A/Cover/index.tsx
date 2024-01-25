@@ -15,6 +15,7 @@ export default function Cover({ data, onSectionClick }: CoverProps) {
   const wifeName = data?.block?.wifeName;
   const address = data?.block?.address;
   const addressDetail = data?.block?.addressDetail;
+  const representativeImage = data?.block?.representativeImage;
 
   const getDate = useMemo(() => {
     if (dates) {
@@ -45,8 +46,11 @@ export default function Cover({ data, onSectionClick }: CoverProps) {
         {month}월{date}일
       </p>
       <Image
-        src="https://www.itscard.co.kr/mobile/new_m/mcard/images/mcard_29/visual_01.jpg"
-        alt="1234"
+        src={
+          representativeImage ||
+          "https://www.itscard.co.kr/mobile/new_m/mcard/images/mcard_29/visual_01.jpg"
+        }
+        alt="대표 결혼식 이미지"
         width={260}
         height={260}
       />

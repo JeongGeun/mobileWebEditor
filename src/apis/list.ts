@@ -25,6 +25,7 @@ export interface Block {
   husbandOrder: string;
   wifeOrder: string;
   fileList: UploadFile<any>[];
+  representativeImage: string;
 }
 
 export interface FormListType {
