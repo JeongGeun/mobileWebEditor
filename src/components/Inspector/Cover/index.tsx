@@ -37,24 +37,6 @@ export default function CoverInspector() {
               const result = results[0]; //첫번째 결과의 값을 활용
               setValue("block.addressYposition", result.y);
               setValue("block.addressXposition", result.x);
-              // // 해당 주소에 대한 좌표를 받아서
-              // const mapOption = {
-              //   center: new window.kakao.maps.LatLng(result.y, result.x), // 지도의 중심좌표
-              //   level: 3, // 지도의 확대 레벨
-              // };
-              // map.current = new window.kakao.maps.Map(mapDiv, mapOption);
-              // const markerPosition = new window.kakao.maps.LatLng(
-              //   result.y,
-              //   result.x
-              // );
-
-              // // 마커를 생성합니다
-              // marker.current = new window.kakao.maps.Marker({
-              //   position: markerPosition,
-              // });
-
-              // // 마커가 지도 위에 표시되도록 설정합니다
-              // marker.current?.setMap(map.current);
             }
           }
         );
