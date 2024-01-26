@@ -8,6 +8,8 @@ export interface Block {
   wifeName: string;
   address: string;
   addressDetail: string;
+  addressYposition: string;
+  addressXposition: string;
   date: string;
   messageTitle: string;
   messageContent: string;
