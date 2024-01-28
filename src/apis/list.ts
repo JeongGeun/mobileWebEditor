@@ -28,6 +28,9 @@ export interface Block {
   wifeOrder: string;
   fileList: UploadFile<any>[];
   representativeImage: string;
+  subway:string;
+  bus:string;
+  parking:string;
 }
 
 export interface FormListType {
