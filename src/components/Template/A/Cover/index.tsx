@@ -53,6 +53,7 @@ export default function Cover({ data, onSectionClick }: CoverProps) {
         alt="대표 결혼식 이미지"
         width={260}
         height={260}
+        style={{ height: "auto" }}
       />
       <div className={styles.name}>
         {husbandName} / {wifeName}
