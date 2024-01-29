@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout } from "antd";
+import { Layout, Spin } from "antd";
 import Renderer from "@/components/Renderer";
 import Sider from "@/components/Sider";
 import { FormListType } from "@/apis/list";
@@ -20,7 +20,7 @@ export default function Editor() {
   const { reset } = useFormContext();
   const params = useSearchParams();
   const id = params.get("id") as string;
-  const { data } = useGetInviInfoQuery(id, { enabled: !!id });
+  const { isPending, data } = useGetInviInfoQuery(id, { enabled: !!id });
   const formData = watch();
 
   useEffect(() => {
@@ -28,6 +28,10 @@ export default function Editor() {
       reset({ ...data, inspectorNumber: 0 });
     }
   }, [reset, data]);
+
+  if (isPending) {
+    return <Spin spinning={isPending} fullscreen></Spin>;
+  }
 
   return (
     <Layout style={{ height: "100%" }} hasSider>
