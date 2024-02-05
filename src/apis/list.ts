@@ -49,7 +49,7 @@ export interface InvitationList {
 }
 
 export const getInvitationList = () => {
-  return resultify(
+  return resultify<InvitationList[]>(
     fetch(URLS.INVITATION_LIST, { method: "GET", next: { revalidate: 10 } })
   );
 };
