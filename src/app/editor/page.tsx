@@ -29,7 +29,7 @@ export default function Editor() {
     }
   }, [reset, data]);
 
-  if (isPending) {
+  if (id && isPending) {
     return <Spin spinning={isPending} fullscreen></Spin>;
   }
 
