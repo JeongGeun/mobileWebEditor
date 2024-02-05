@@ -3,11 +3,27 @@ import getQueryClient from "@/app/getQueryClient";
 import MobileRender from "@/components/MobileRenderer";
 import { GET_INVI_INFO_QUERY_KEY } from "@/query/useGetInviInfoQuery";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { Metadata, ResolvingMetadata } from "next";
 
-export const metadata = {
-  title: "모바일 청첩장",
-  description: "당신을 초대합니다.",
+type Props = {
+  params: { id: string };
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const data = await getInvitatationInfo(id);
+
+  return {
+    title: data.block.ogTitle,
+    description: data.block.ogDescription,
+    openGraph: {
+      images: data.block.representativeImage,
+    },
+  };
+}
 
 export default async function MobilePage({
   params,

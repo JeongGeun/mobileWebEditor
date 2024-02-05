@@ -1,4 +1,4 @@
-export const resultify = async (callback: Promise<Response>) => {
+export const resultify = async <T,>(callback: Promise<T>) => {
   try {
     const response = await callback;
     const result = await response.json();
