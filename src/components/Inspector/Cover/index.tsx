@@ -46,6 +46,24 @@ export default function CoverInspector() {
   return (
     <div className={styles["inspector-layout"]}>
       <Controller
+        name="block.ogTitle"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>미리보기 제목</label>
+            <Input {...field} />
+          </div>
+        )}
+      />
+      <Controller
+        name="block.ogDescription"
+        render={({ field }) => (
+          <div className={styles.container}>
+            <label>미리보기 설명</label>
+            <Input {...field} />
+          </div>
+        )}
+      />
+      <Controller
         name="block.husbandName"
         render={({ field }) => (
           <div className={styles.container}>

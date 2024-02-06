@@ -4,6 +4,8 @@ import { URLS, resultify } from ".";
 export type TemplateType = "A" | "B" | "C" | "D";
 
 export interface Block {
+  ogTitle: string;
+  ogDescription: string;
   husbandName: string;
   wifeName: string;
   address: string;
@@ -28,9 +30,9 @@ export interface Block {
   wifeOrder: string;
   fileList: UploadFile<any>[];
   representativeImage: string;
-  subway:string;
-  bus:string;
-  parking:string;
+  subway: string;
+  bus: string;
+  parking: string;
 }
 
 export interface FormListType {
@@ -47,13 +49,13 @@ export interface InvitationList {
 }
 
 export const getInvitationList = () => {
-  return resultify(
+  return resultify<InvitationList[]>(
     fetch(URLS.INVITATION_LIST, { method: "GET", next: { revalidate: 10 } })
   );
 };
 
 export const getInvitatationInfo = (id: string) => {
-  return resultify(
+  return resultify<FormListType>(
     fetch(`${URLS.INVITATION_LIST}/${id}`, {
       method: "GET",
       next: { revalidate: 10 },
