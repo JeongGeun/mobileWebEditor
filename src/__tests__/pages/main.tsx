@@ -1,8 +1,18 @@
 import MainPage from '@/app/main/page'
-import {render, fireEvent, screen} from '@testing-library/react'
+import { TestWrapper } from '@/util/test/wrapper';
 
-test("Main 페이지의 타이틀이 모청 리스트 인지 확인한다.",()=>{
-    render(<MainPage />)
+import { render, fireEvent, screen } from '@testing-library/react'
 
-    expect(screen.getByRole('heading')).toHaveTextContent("모청 리스트")
+jest.mock("next/navigation", () => ({
+    useRouter() {
+        return {
+            prefetch: () => null
+        };
+    }
+}));
+
+test("Main 페이지의 타이틀이 모청 리스트 인지 확인한다.", () => {
+    render(<MainPage />, { wrapper: TestWrapper() })
+    const header = screen.getByRole('heading');
+    expect(header).toHaveTextContent("모청 리스트")
 })

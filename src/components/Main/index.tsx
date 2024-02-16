@@ -34,12 +34,10 @@ const Main = () => {
   const { data } = useGetListQuery();
   const router = useRouter();
 
-  if (!data) return null;
-
   return (
     <>
       <div className={styles.header}>
-        <Typography.Title>모청 리스트</Typography.Title>
+        <Typography.Title level={1} role="heading">모청 리스트</Typography.Title>
         <Button
           type="primary"
           onClick={() => {
@@ -50,20 +48,22 @@ const Main = () => {
           등록하기
         </Button>
       </div>
-      <Table
-        className={styles.table}
-        dataSource={data}
-        columns={columns}
-        onRow={(record) => {
-          return {
-            onClick: () => {
-              router.push(
-                `${process.env.NEXT_PUBLIC_BASE_API_URL}/editor?id=${record._id}`
-              );
-            },
-          };
-        }}
-      />
+      {data &&
+        <Table
+          className={styles.table}
+          dataSource={data}
+          columns={columns}
+          onRow={(record) => {
+            return {
+              onClick: () => {
+                router.push(
+                  `${process.env.NEXT_PUBLIC_BASE_API_URL}/editor?id=${record._id}`
+                );
+              },
+            };
+          }}
+        />}
+
     </>
   );
 };
