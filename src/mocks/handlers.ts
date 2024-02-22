@@ -2,7 +2,7 @@ import { URLS } from '@/apis'
 import { http, HttpResponse } from 'msw'
 
 export const handlers = [
-    http.post(URLS.INVITATION_LIST, () => {
+    http.get(URLS.INVITATION_LIST, () => {
         // Note that you DON'T have to stringify the JSON!
         return HttpResponse.json([
             {

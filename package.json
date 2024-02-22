@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch"
+    "test": "NODE_ENV=local jest",
+    "test:watch": "NODE_ENV=local jest --watch"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.16.1",
@@ -56,6 +56,8 @@
     "react-test-renderer": "^18.2.0",
     "sass": "^1.65.1",
     "ts-node": "^10.9.2",
-    "typescript-plugin-css-modules": "^5.0.1"
+    "typescript-plugin-css-modules": "^5.0.1",
+    "undici": "^5",
+    "whatwg-fetch": "^3.6.20"
   }
 }

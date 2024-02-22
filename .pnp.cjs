@@ -70,7 +70,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["swiper", "npm:10.3.1"],\
             ["ts-node", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:10.9.2"],\
             ["typescript", "patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"],\
-            ["typescript-plugin-css-modules", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.0.1"]\
+            ["typescript-plugin-css-modules", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.0.1"],\
+            ["undici", "npm:5.28.3"],\
+            ["whatwg-fetch", "npm:3.6.20"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -1886,6 +1888,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@eslint-js-npm-8.44.0-66b473d41b-fc53958322.zip/node_modules/@eslint/js/",\
           "packageDependencies": [\
             ["@eslint/js", "npm:8.44.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@fastify/busboy", [\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/@fastify-busboy-npm-2.1.0-960844a007-3233abd10f.zip/node_modules/@fastify/busboy/",\
+          "packageDependencies": [\
+            ["@fastify/busboy", "npm:2.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9445,7 +9456,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["swiper", "npm:10.3.1"],\
             ["ts-node", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:10.9.2"],\
             ["typescript", "patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"],\
-            ["typescript-plugin-css-modules", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.0.1"]\
+            ["typescript-plugin-css-modules", "virtual:ddccc941eb8b35cd4b898a64351d8bba4ecc85eb47e8f1b36dce7852d6c3635665e0fc5464861f723d175edb2248ce0fa54dfefb9b5e4d2fdaef4b2353c4aa82#npm:5.0.1"],\
+            ["undici", "npm:5.28.3"],\
+            ["whatwg-fetch", "npm:3.6.20"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -13139,6 +13152,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["undici", [\
+        ["npm:5.28.3", {\
+          "packageLocation": "./.yarn/cache/undici-npm-5.28.3-fb5b0fbd18-fa1e65aff8.zip/node_modules/undici/",\
+          "packageDependencies": [\
+            ["undici", "npm:5.28.3"],\
+            ["@fastify/busboy", "npm:2.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["undici-types", [\
         ["npm:5.26.5", {\
           "packageLocation": "./.yarn/cache/undici-types-npm-5.26.5-de4f7c7bb9-3192ef6f3f.zip/node_modules/undici-types/",\
@@ -13316,6 +13339,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["whatwg-encoding", "npm:2.0.0"],\
             ["iconv-lite", "npm:0.6.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["whatwg-fetch", [\
+        ["npm:3.6.20", {\
+          "packageLocation": "./.yarn/cache/whatwg-fetch-npm-3.6.20-a6f79b98c4-c58851ea2c.zip/node_modules/whatwg-fetch/",\
+          "packageDependencies": [\
+            ["whatwg-fetch", "npm:3.6.20"]\
           ],\
           "linkType": "HARD"\
         }]\

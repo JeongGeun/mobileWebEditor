@@ -1,6 +1,6 @@
 import MainPage from '@/app/main/page'
 import { TestWrapper } from '@/util/test/wrapper';
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, fireEvent, screen, waitFor } from '@testing-library/react'
 import { useRouter } from "next/navigation";
 
 jest.mock("next/navigation", () => ({
@@ -33,7 +33,12 @@ describe('Main 페이지', () => {
         expect(mockRouter.push).toHaveBeenCalledWith('/editor');
     });
 
-
+    it("API 호출 후에 [id , 신랑 및 신부 정보 , 일자 , 등록한 사람] 항목이 있는 테이블이 노출되어야 한다.", async () => {
+        await waitFor(() => {
+            const idThead = screen.getByText(/id/i);
+            expect(idThead).toBeInTheDocument();
+        })
+    })
 
 
 })
