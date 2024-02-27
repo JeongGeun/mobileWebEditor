@@ -5,13 +5,16 @@ interface WrapperProps {
   children: ReactNode;
 }
 
-export const TestWrapper = () => {
+const TestWrapper = () => {
   // ✅ creates a new QueryClient for each test
-  const queryClient = new QueryClient()
-  return ({ children }: WrapperProps) => (
+  const queryClient = new QueryClient();
+  const Wrapper = ({ children }: WrapperProps) => (
     <QueryClientProvider client={queryClient}>
       {children}
     </QueryClientProvider>
-  )
+  );
+
+  return Wrapper;
 }
 
+export default TestWrapper;
