@@ -7,7 +7,7 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 
-const MainPage = async () => {
+const MainPage = () => {
   // const queryClient = new QueryClient();
   // await queryClient.prefetchQuery({
   //   queryKey: [GET_LIST_QUERY_KEY],
