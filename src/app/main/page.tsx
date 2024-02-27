@@ -6,18 +6,19 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
+import getQueryClient from "../getQueryClient";
 
-const MainPage = () => {
-  // const queryClient = new QueryClient();
-  // await queryClient.prefetchQuery({
-  //   queryKey: [GET_LIST_QUERY_KEY],
-  //   queryFn: getInvitationList,
-  // });
+const MainPage = async () => {
+  const queryClient = getQueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: [GET_LIST_QUERY_KEY],
+    queryFn: getInvitationList,
+  });
+
   return (
-    // <HydrationBoundary state={dehydrate(queryClient)}>
-    //   <Main />
-    // </HydrationBoundary>
-    <Main />
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Main />
+    </HydrationBoundary>
   );
 };
 

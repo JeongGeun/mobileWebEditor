@@ -1,5 +1,5 @@
-import MainPage from '@/app/main/page'
-import { TestWrapper } from '@/util/test/wrapper';
+import Main from '@/components/Main';
+import TestWrapper from '@/util/test/wrapper';
 import { render, fireEvent, screen, waitFor } from '@testing-library/react'
 import { useRouter } from "next/navigation";
 
@@ -17,7 +17,7 @@ const mockRouter = {
 describe('Main 페이지', () => {
 
     beforeEach(() => {
-        render(<MainPage />, { wrapper: TestWrapper() });
+        render(<Main />, { wrapper: TestWrapper() });
 
     })
 

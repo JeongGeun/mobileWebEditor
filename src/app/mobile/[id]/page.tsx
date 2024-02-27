@@ -3,7 +3,7 @@ import getQueryClient from "@/app/getQueryClient";
 import MobileRender from "@/components/MobileRenderer";
 import { GET_INVI_INFO_QUERY_KEY } from "@/query/useGetInviInfoQuery";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 type Props = {
   params: { id: string };
