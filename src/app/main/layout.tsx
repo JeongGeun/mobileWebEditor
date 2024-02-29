@@ -1,9 +1,14 @@
-import AppLayout from "@/components/Layout";
+// import AppLayout from "@/components/Layout";
 
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <AppLayout>{children}</AppLayout>;
+  return (
+    <div>
+      <div>12345</div>
+      {children}
+    </div>
+  );
 }

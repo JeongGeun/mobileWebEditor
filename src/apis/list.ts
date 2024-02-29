@@ -58,7 +58,8 @@ export const getInvitatationInfo = (id: string) => {
   return resultify<FormListType>(
     fetch(`${URLS.INVITATION_LIST}/${id}`, {
       method: "GET",
-      next: { revalidate: 10 },
+      cache: "no-store",
+      //next: { revalidate: 10 },
     })
   );
 };
