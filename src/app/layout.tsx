@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import React from "react";
 import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
@@ -18,7 +17,7 @@ import localeData from "dayjs/plugin/localeData";
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import weekYear from "dayjs/plugin/weekYear";
-import { server } from '@/mocks/node';
+import { server } from "@/mocks/node";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
@@ -27,8 +26,7 @@ dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
 
-
-if (process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === "test") {
   server.listen();
 }
 
@@ -42,13 +40,13 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
     <head>
-      <Script
+      <script
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false&libraries=services"
-        strategy="beforeInteractive"
+        defer
       />
-      <Script
+      <script
         src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
-        strategy="beforeInteractive"
+        defer
       />
     </head>
     <body className={inter.className} style={{ margin: 0 }}>

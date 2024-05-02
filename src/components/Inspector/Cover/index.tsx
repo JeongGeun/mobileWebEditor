@@ -15,11 +15,7 @@ import { UploadOutlined } from "@ant-design/icons";
 import { deleteS3file, getUploadedS3Url } from "@/util/s3";
 
 export default function CoverInspector() {
-  const map = useRef<any>();
-  const marker = useRef<any>();
   const { setValue } = useFormContext();
-
-  useEffect(() => {}, []);
 
   const postAddressCode = () => {
     const geocoder = new window.daum.maps.services.Geocoder();

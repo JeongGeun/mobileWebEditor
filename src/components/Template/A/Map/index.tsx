@@ -23,7 +23,7 @@ export default function WeddingMap({ data, onSectionClick }: WedddingMapProps) {
   // https://postcode.map.daum.net/guide
   // https://developers.kakao.com/docs/latest/ko/local/dev-guide#trans-coord
   useEffect(() => {
-    window.kakao.maps.load(() => {
+    window.kakao?.maps?.load(() => {
       if (addressXposition && addressYposition) {
         const mapOption = {
           center: new window.kakao.maps.LatLng(
@@ -73,15 +73,21 @@ export default function WeddingMap({ data, onSectionClick }: WedddingMapProps) {
         <div className={styles.contain}>
           <dl>
             <dt>지하철 안내</dt>
-            {subway?.split("\n")?.map((text) => <dd key={text}>{text}</dd>)}
+            {subway?.split("\n")?.map((text) => (
+              <dd key={text}>{text}</dd>
+            ))}
           </dl>
           <dl>
             <dt>버스안내</dt>
-            {bus?.split("\n")?.map((text) => <dd key={text}>{text}</dd>)}
+            {bus?.split("\n")?.map((text) => (
+              <dd key={text}>{text}</dd>
+            ))}
           </dl>
           <dl>
             <dt>주차안내</dt>
-            {parking?.split("\n")?.map((text) => <dd key={text}>{text}</dd>)}
+            {parking?.split("\n")?.map((text) => (
+              <dd key={text}>{text}</dd>
+            ))}
           </dl>
         </div>
       </div>
