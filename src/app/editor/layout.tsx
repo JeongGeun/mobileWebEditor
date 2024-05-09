@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import AppLayout from "@/components/Layout";
 import { Button } from "antd";
+import Script from "next/script";
 
 export default function EditorLayout({
   children,
@@ -37,8 +38,12 @@ export default function EditorLayout({
   );
 
   return (
-    <AppLayout buttonComponent={buttonComponent}>
-      <FormProvider {...methods}>{children}</FormProvider>
-    </AppLayout>
+    <>
+      <Script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false&libraries=services" />
+      <Script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" />
+      <AppLayout buttonComponent={buttonComponent}>
+        <FormProvider {...methods}>{children}</FormProvider>
+      </AppLayout>
+    </>
   );
 }

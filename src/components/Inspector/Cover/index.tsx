@@ -18,13 +18,14 @@ export default function CoverInspector() {
   const { setValue } = useFormContext();
 
   const postAddressCode = () => {
-    const geocoder = new window.daum.maps.services.Geocoder();
-
     new window.daum.Postcode({
       oncomplete: function (data: any) {
         // 주소 정보를 해당 필드에 넣는다.
+
         setValue("block.address", data.address);
+
         // 주소로 상세 정보를 검색
+        const geocoder = new window.daum.maps.services.Geocoder();
         geocoder.addressSearch(
           data.address,
           function (results: any, status: any) {

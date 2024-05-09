@@ -9,7 +9,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import Providers from "./providers";
-import Script from "next/script";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -39,16 +38,6 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko">
-    <head>
-      <script
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=893057f10023d283eb6d23d177fbf578&autoload=false&libraries=services"
-        defer
-      />
-      <script
-        src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
-        defer
-      />
-    </head>
     <body className={inter.className} style={{ margin: 0 }}>
       <Providers>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
