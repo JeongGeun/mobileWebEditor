@@ -2,24 +2,23 @@ name: Pull_Request GitHub Actions Demo
 run-name: ${{ github.actor }} is Pull_Request testing out GitHub Actions 🚀
 on:
   push:
-    branches: 
-     - '**'
+    branches:
+      - "**"
   pull_request:
     branches:
       - main
 jobs:
-  Prepare For Merge:
+  prepare-for-merge:
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: Use Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: '18.x'
-        - name: Install dependencies
-          run: yarn install 
-        - name: check lint
-          run: yarn lint
-        - name: check test
-          run: yarn test
-
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.x"
+      - name: Install dependencies
+        run: yarn install
+      - name: check lint
+        run: yarn lint
+      - name: check test
+        run: yarn test
